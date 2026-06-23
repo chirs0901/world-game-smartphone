@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAFBFC;
+  --foreground: #1E293B;
+  /* Brand theme defaults (blue) */
+  --brand-primary: #3B82F6;
+  --brand-primary-light: #DBEAFE;
+  --brand-primary-dark: #1D4ED8;
+  --brand-accent: #3B82F6;
+  --brand-sidebar-bg: #0F172A;
+  --brand-text-on-primary: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-primary-dark: var(--brand-primary-dark);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-sidebar: var(--brand-sidebar-bg);
+  --color-brand-text: var(--brand-text-on-primary);
+  --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ── Card Styles (from HTML reference) ── */
+.card {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient highlight overlays */
+.highlight-gradient-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.04));
+}
+.highlight-gradient-purple {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.04));
+}
+.highlight-gradient-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.04));
+}
+.highlight-gradient-amber {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.04));
+}
+.highlight-gradient-rose {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0), rgba(244, 63, 94, 0.04));
+}
+.highlight-gradient-sky {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.04));
+}
+
+/* ── Page Transitions ── */
+.page-enter {
+  animation: fadeSlideIn 0.3s ease-out;
+}
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Clean input / textarea ── */
+input, textarea, select {
+  color: #1E293B;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #64748B;
+  opacity: 1;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

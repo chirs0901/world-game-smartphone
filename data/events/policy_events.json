@@ -1,0 +1,133 @@
+[
+  {
+    "id": "policy_data_privacy",
+    "title": "数据隐私法规收紧",
+    "description": "新的个人信息保护法实施，手机厂商需重新调整数据采集和使用策略。",
+    "category": "policy",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.5},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["全面合规改造", "推出隐私保护卖点", "最小化数据收集"],
+    "duration_turns": 2
+  },
+  {
+    "id": "policy_antitrust",
+    "title": "反垄断调查升级",
+    "description": "监管机构对手机行业发起反垄断调查，预装应用和应用商店政策面临调整。",
+    "category": "policy",
+    "severity": "high",
+    "impacts": [
+      {"metric": "revenue", "direction": "down", "magnitude": "medium", "confidence": 0.6},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["主动合规调整", "聘请法律顾问", "开放生态系统"],
+    "duration_turns": 3
+  },
+  {
+    "id": "policy_5g_subsidy",
+    "title": "5G终端补贴政策",
+    "description": "政府推出5G终端消费补贴，消费者购买5G手机可获10%价格补贴。",
+    "category": "policy",
+    "severity": "low",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "market_share", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加大5G产品推广", "申请补贴资质", "联合运营商促销"],
+    "duration_turns": 2
+  },
+  {
+    "id": "policy_import_tariff",
+    "title": "进口关税调整",
+    "description": "电子元器件进口关税上调5-8%，影响手机BOM成本。",
+    "category": "policy",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "profit", "direction": "down", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["推进国产化替代", "调整产品定价", "申请关税豁免"],
+    "duration_turns": 2
+  },
+  {
+    "id": "policy_green_manufacturing",
+    "title": "绿色制造标准实施",
+    "description": "电子产品碳足迹核算标准发布，企业需披露生产环节碳排放。",
+    "category": "policy",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["启动碳中和计划", "使用绿色能源", "发布环保报告"],
+    "duration_turns": 1
+  },
+  {
+    "id": "policy_export_control",
+    "title": "技术出口管制",
+    "description": "部分高端芯片和制造设备被列入出口管制清单，影响技术合作。",
+    "category": "policy",
+    "severity": "critical",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "large", "confidence": 0.8},
+      {"metric": "supply_stability", "direction": "down", "magnitude": "large", "confidence": 0.9}
+    ],
+    "response_options": ["加大自研投入", "寻找替代技术路线", "建立国内供应链"],
+    "chain_effects": ["行业格局重构", "国产替代加速"],
+    "duration_turns": 4
+  },
+  {
+    "id": "policy_right_to_repair",
+    "title": "维修权法案通过",
+    "description": "消费者维修权法案通过，厂商需提供零部件和维修手册。",
+    "category": "policy",
+    "severity": "low",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "revenue", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["主动开放维修", "建立授权维修网络", "优化产品设计"],
+    "duration_turns": 1
+  },
+  {
+    "id": "policy_digital_currency",
+    "title": "数字人民币推广",
+    "description": "数字人民币试点范围扩大，移动支付生态迎来新变化。",
+    "category": "policy",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["率先支持数字人民币", "开发数字钱包", "维持现有支付方案"],
+    "duration_turns": 1
+  },
+  {
+    "id": "policy_ai_regulation",
+    "title": "AI监管框架出台",
+    "description": "人工智能产品和服务的监管框架正式出台，AI手机功能需合规审查。",
+    "category": "policy",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "small", "confidence": 0.5},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["组建AI合规团队", "参与标准制定", "调整AI功能策略"],
+    "duration_turns": 2
+  },
+  {
+    "id": "policy_trade_war",
+    "title": "中美贸易摩擦加剧",
+    "description": "新一轮贸易限制措施出台，芯片和关键设备供应面临不确定性。",
+    "category": "policy",
+    "severity": "critical",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "large", "confidence": 0.9},
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "market_share", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["加速国产替代", "建立战略库存", "拓展非美供应链"],
+    "chain_effects": ["全球供应链重构", "技术脱钩加速"],
+    "duration_turns": 4
+  }
+]

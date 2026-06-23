@@ -1,0 +1,81 @@
+[
+  {
+    "id": "software_os_update",
+    "title": "操作系统大版本更新发布",
+    "description": "新一代操作系统正式发布，引入端侧大模型能力、全新UI设计和隐私保护功能，获得业界好评。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加速OTA推送覆盖全产品线", "联合开发者丰富应用生态", "以OS为核心打造差异化卖点"],
+    "duration_turns": 2
+  },
+  {
+    "id": "software_security_breach",
+    "title": "系统安全漏洞被公开披露",
+    "description": "安全研究团队发现操作系统存在高危漏洞，影响数百万用户，需要紧急推送安全补丁。",
+    "category": "technology",
+    "severity": "high",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "medium", "confidence": 0.8}
+    ],
+    "response_options": ["24小时内推送紧急补丁", "公开致信并承诺赔偿", "加强安全审计团队"],
+    "chain_effects": ["用户信任度下降", "竞品借机营销"],
+    "duration_turns": 2
+  },
+  {
+    "id": "software_ai_assistant",
+    "title": "端侧AI助手功能引领行业",
+    "description": "自研端侧AI助手支持自然语言交互、智能摘要、实时翻译等功能，成为产品核心卖点。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加大AI助手研发投入", "开放API构建AI生态", "将AI能力作为旗舰核心卖点"],
+    "duration_turns": 2
+  },
+  {
+    "id": "software_ecosystem_expansion",
+    "title": "IoT生态链接入设备突破1亿",
+    "description": "品牌IoT生态链接入设备数量突破1亿台，跨设备协同体验成为差异化优势。",
+    "category": "technology",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["加大IoT产品线投入", "开放生态平台吸引第三方", "强化跨设备协同体验"],
+    "duration_turns": 1
+  },
+  {
+    "id": "software_app_compatibility",
+    "title": "应用兼容性问题引发用户投诉",
+    "description": "新系统版本导致部分热门应用闪退，用户投诉激增，应用兼容性测试流程需要改进。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "brand_heat", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["紧急发布兼容性修复补丁", "建立应用兼容性测试联盟", "与Top100应用开发者深度合作"],
+    "duration_turns": 1
+  },
+  {
+    "id": "software_privacy_regulation",
+    "title": "数据隐私法规趋严",
+    "description": "新版个人信息保护法实施，要求手机厂商全面整改数据采集和使用流程，增加合规成本。",
+    "category": "policy",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6},
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["全面升级隐私保护体系", "发布透明度报告", "以隐私保护为营销卖点"],
+    "duration_turns": 2
+  }
+]

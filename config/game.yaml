@@ -1,0 +1,44 @@
+# World Game — 游戏核心参数配置
+
+game:
+  max_turns: 40              # 最大回合数（10年 x 4季度）
+  default_difficulty: "normal"
+  start_year: 2025
+  start_quarter: 1
+
+difficulty:
+  easy:
+    events_per_turn: [1, 2]       # 每回合事件数范围
+    event_severity_bias: 0.3      # 严重事件概率降低
+    initial_cash: 80.0            # 初始资金（亿元）
+    market_growth_bonus: 0.02     # 市场增长加成
+  normal:
+    events_per_turn: [2, 3]
+    event_severity_bias: 0.5
+    initial_cash: 50.0
+    market_growth_bonus: 0.0
+  hard:
+    events_per_turn: [3, 5]
+    event_severity_bias: 0.7
+    initial_cash: 30.0
+    market_growth_bonus: -0.02
+
+state_machine:
+  chain_decay_factor: 0.5         # 链式传导每跳衰减系数
+  max_chain_depth: 3              # 最大传导深度
+  metric_clamp:
+    brand_heat: [0, 100]
+    tech_leadership: [0, 100]
+    market_share: [0, 100]
+    supply_stability: [0, 100]
+    customer_satisfaction: [0, 100]
+    morale: [0, 100]
+  max_single_turn_change_pct: 0.5 # 单回合指标最大变化 50%
+
+turn:
+  phases:
+    - "event_generation"
+    - "player_decision"
+    - "board_debate"
+    - "state_transition"
+    - "okr_update"

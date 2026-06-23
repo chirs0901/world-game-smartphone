@@ -1,0 +1,266 @@
+# World Game — 可选公司配置（玩家品牌）
+
+companies:
+  - id: "apply"
+    name: "Apply"
+    tagline: "Think Innovation"
+    logo_emoji: "🍎"
+    country: "美国"
+    description: "全球最具价值的科技品牌之一，拥有强大的生态系统和忠实的用户群体。产品线覆盖高端手机、平板、笔记本。自研芯片和操作系统形成深厚护城河。"
+    strengths: ["生态系统", "品牌溢价", "自研芯片", "用户忠诚度"]
+    weaknesses: ["创新放缓", "价格过高", "市场份额下滑"]
+    strategy_hint: "利用生态壁垒守住高端市场，同时寻找新的增长点。"
+    difficulty: "normal"  # 推荐难度
+    ai_strategy:
+      positioning: "端侧AI生态引领者"
+      key_investment: ["自研NPU架构", "端侧大模型压缩", "多模态AI助手"]
+      risk_appetite: "medium"
+      differentiation: "Apple Intelligence深度集成生态，AI能力跨设备协同"
+      budget_allocation:
+        rd_ai: 0.35
+        marketing_ai: 0.15
+        ecosystem: 0.30
+        infrastructure: 0.20
+    base_metrics:
+      sales_volume: 600       # 万台/季度
+      revenue: 28.0           # 亿元
+      profit: 8.5             # 亿元（高利润率）
+      inventory: 80           # 万台（精益库存）
+      cash_reserve: 120.0     # 亿元（现金充裕）
+      brand_heat: 85
+      tech_leadership: 82
+      market_share: 18
+      supply_stability: 75
+      customer_satisfaction: 80
+      morale: 75
+
+  - id: "samsun"
+    name: "Samsun"
+    tagline: "Display the Future"
+    logo_emoji: "📱"
+    country: "韩国"
+    description: "全球最大的手机制造商，拥有全产业链垂直整合能力。屏幕、芯片、电池均能自产，产品线覆盖从入门到旗舰全价位段。"
+    strengths: ["全产业链", "屏幕技术", "市场份额", "产品线宽"]
+    weaknesses: ["品牌高端感不足", "创新缺乏惊喜", "中低端利润薄"]
+    strategy_hint: "用全价位段覆盖市场，靠屏幕和芯片的技术优势拉开差距。"
+    difficulty: "easy"
+    ai_strategy:
+      positioning: "AI全场景生活助手"
+      key_investment: ["Galaxy AI端侧能力", "三星Gauss自研模型", "实时翻译与摘要"]
+      risk_appetite: "medium"
+      differentiation: "AI能力贯穿手表、耳机、平板等全产品线"
+      budget_allocation:
+        rd_ai: 0.30
+        marketing_ai: 0.20
+        ecosystem: 0.25
+        infrastructure: 0.25
+    base_metrics:
+      sales_volume: 800       # 万台/季度（出货量最大）
+      revenue: 22.0           # 亿元
+      profit: 4.0             # 亿元（利润率低）
+      inventory: 150          # 万台
+      cash_reserve: 80.0      # 亿元
+      brand_heat: 72
+      tech_leadership: 78
+      market_share: 20
+      supply_stability: 85    # 自产能力强
+      customer_satisfaction: 65
+      morale: 68
+
+  - id: "huawey"
+    name: "Huawey"
+    tagline: "Connect Everything"
+    logo_emoji: "🌐"
+    country: "中国"
+    description: "中国最具技术实力的科技公司，在通信设备和手机领域双线作战。自研芯片和操作系统是核心竞争力，但面临外部制裁压力。"
+    strengths: ["自研芯片", "通信技术", "品牌号召力", "研发投入"]
+    weaknesses: ["供应链受限", "海外市场萎缩", "软件生态不成熟"]
+    strategy_hint: "国内市场是基本盘，突破芯片封锁是关键。投入自研，走技术自主路线。"
+    difficulty: "hard"
+    ai_strategy:
+      positioning: "全栈自研AI终端"
+      key_investment: ["盘古大模型端侧化", "昇腾芯片AI算力", "多模态交互引擎"]
+      risk_appetite: "high"
+      differentiation: "芯片+OS+AI全栈自研，不受外部AI生态限制"
+      budget_allocation:
+        rd_ai: 0.45
+        marketing_ai: 0.10
+        ecosystem: 0.20
+        infrastructure: 0.25
+    base_metrics:
+      sales_volume: 450       # 万台/季度（受制裁影响）
+      revenue: 14.0           # 亿元
+      profit: 2.8             # 亿元
+      inventory: 120          # 万台
+      cash_reserve: 60.0      # 亿元
+      brand_heat: 80
+      tech_leadership: 80
+      market_share: 12
+      supply_stability: 45    # 制裁影响
+      customer_satisfaction: 72
+      morale: 85              # 民族品牌凝聚力
+
+  - id: "oyeah"
+    name: "OYeah"
+    tagline: "Camera is Art"
+    logo_emoji: "📸"
+    country: "中国"
+    description: "以拍照和外观设计见长的年轻品牌，深受年轻消费者喜爱。营销能力强，线下渠道覆盖广，但在核心技术方面积累不足。"
+    strengths: ["拍照调教", "外观设计", "线下渠道", "营销能力"]
+    weaknesses: ["技术积累不足", "品牌溢价低", "供应链话语权弱"]
+    strategy_hint: "用拍照和颜值打差异化，深耕年轻用户群体，逐步补齐技术短板。"
+    difficulty: "normal"
+    ai_strategy:
+      positioning: "AI影像与年轻化体验"
+      key_investment: ["AI美颜与修图算法", "智能拍摄场景识别", "端侧轻量模型"]
+      risk_appetite: "low"
+      differentiation: "AI赋能影像体验，聚焦年轻用户场景"
+      budget_allocation:
+        rd_ai: 0.25
+        marketing_ai: 0.30
+        ecosystem: 0.15
+        infrastructure: 0.30
+    base_metrics:
+      sales_volume: 350       # 万台/季度
+      revenue: 8.5            # 亿元
+      profit: 1.2             # 亿元
+      inventory: 100          # 万台
+      cash_reserve: 35.0      # 亿元
+      brand_heat: 62
+      tech_leadership: 48
+      market_share: 9
+      supply_stability: 65
+      customer_satisfaction: 68
+      morale: 70
+
+  - id: "viva"
+    name: "Viva"
+    tagline: "Feel the Sound"
+    logo_emoji: "🎵"
+    country: "中国"
+    description: "以音质和影像为品牌基因的手机厂商，在东南亚和印度市场有强势渠道。HiFi音频和自拍是核心卖点，但面临同质化竞争压力。"
+    strengths: ["HiFi音频", "自拍技术", "东南亚渠道", "性价比"]
+    weaknesses: ["同质化严重", "高端突破困难", "研发投入不足"]
+    strategy_hint: "在音频和影像上做极致体验，用东南亚市场的增长对冲国内竞争。"
+    difficulty: "normal"
+    ai_strategy:
+      positioning: "AI音影融合体验"
+      key_investment: ["AI降噪与音质增强", "智能影像算法", "端侧语音助手"]
+      risk_appetite: "low"
+      differentiation: "AI+音频+影像三维差异化"
+      budget_allocation:
+        rd_ai: 0.20
+        marketing_ai: 0.25
+        ecosystem: 0.15
+        infrastructure: 0.40
+    base_metrics:
+      sales_volume: 320       # 万台/季度
+      revenue: 7.2            # 亿元
+      profit: 0.9             # 亿元
+      inventory: 110          # 万台
+      cash_reserve: 30.0      # 亿元
+      brand_heat: 58
+      tech_leadership: 45
+      market_share: 8
+      supply_stability: 62
+      customer_satisfaction: 65
+      morale: 65
+
+  - id: "xiaomee"
+    name: "Xiaomee"
+    tagline: "Price Killer"
+    logo_emoji: "🔥"
+    country: "中国"
+    description: "以极致性价比起家的互联网手机品牌，拥有庞大的粉丝社区和IoT生态链。硬件利润率极低，靠互联网服务和生态变现。"
+    strengths: ["性价比之王", "IoT生态", "粉丝社区", "互联网服务"]
+    weaknesses: ["利润率极低", "高端化受阻", "品控波动"]
+    strategy_hint: "用性价比维持出货量，用IoT生态和互联网服务提升利润，伺机冲击高端。"
+    difficulty: "hard"
+    ai_strategy:
+      positioning: "AIoT生态普惠者"
+      key_investment: ["小爱同学大模型升级", "AIoT设备协同", "端云混合AI架构"]
+      risk_appetite: "medium"
+      differentiation: "AI+IoT全屋智能生态，极致性价比AI体验"
+      budget_allocation:
+        rd_ai: 0.25
+        marketing_ai: 0.15
+        ecosystem: 0.40
+        infrastructure: 0.20
+    base_metrics:
+      sales_volume: 500       # 万台/季度（出货量大）
+      revenue: 10.0           # 亿元
+      profit: 0.5             # 亿元（极低利润率）
+      inventory: 130          # 万台
+      cash_reserve: 40.0      # 亿元
+      brand_heat: 68
+      tech_leadership: 55
+      market_share: 14
+      supply_stability: 60
+      customer_satisfaction: 58
+      morale: 72
+
+  - id: "honorx"
+    name: "HonorX"
+    tagline: "Born to Dare"
+    logo_emoji: "⚡"
+    country: "中国"
+    description: "从母品牌独立出来的年轻公司，正在重建供应链和品牌认知。继承了母品牌的部分技术积累，但需要证明自己的独立竞争力。"
+    strengths: ["继承技术", "品牌重塑", "海外市场", "灵活机制"]
+    weaknesses: ["供应链重建中", "品牌认知模糊", "人才流失"]
+    strategy_hint: "快速重建供应链，用海外市场的增长来证明独立价值。"
+    difficulty: "hard"
+    ai_strategy:
+      positioning: "AI赋能年轻商务场景"
+      key_investment: ["端侧AI办公助手", "AI安全防护", "智慧互联体验"]
+      risk_appetite: "medium"
+      differentiation: "面向年轻商务人群的AI效率工具"
+      budget_allocation:
+        rd_ai: 0.30
+        marketing_ai: 0.20
+        ecosystem: 0.20
+        infrastructure: 0.30
+    base_metrics:
+      sales_volume: 250       # 万台/季度
+      revenue: 5.5            # 亿元
+      profit: 0.6             # 亿元
+      inventory: 80           # 万台
+      cash_reserve: 25.0      # 亿元
+      brand_heat: 52
+      tech_leadership: 50
+      market_share: 6
+      supply_stability: 50    # 重建中
+      customer_satisfaction: 60
+      morale: 75              # 创业精神
+
+  - id: "nothingx"
+    name: "NothingX"
+    tagline: "Less is More"
+    logo_emoji: "💡"
+    country: "英国"
+    description: "新锐设计驱动品牌，以透明设计和极简理念吸引眼球。产品数量少但精，社区热度高，但规模小、供应链议价能力弱。"
+    strengths: ["设计创新", "社区热度", "差异化", "品牌故事"]
+    weaknesses: ["规模太小", "供应链弱", "产品线窄", "盈利能力差"]
+    strategy_hint: "用设计差异化在小众市场站稳，逐步扩大产品线和市场份额。"
+    difficulty: "hard"
+    ai_strategy:
+      positioning: "AI驱动的极简设计体验"
+      key_investment: ["AI交互设计", "端侧轻量AI助手", "社区共创AI功能"]
+      risk_appetite: "high"
+      differentiation: "AI+设计双驱动，社区参与AI功能开发"
+      budget_allocation:
+        rd_ai: 0.35
+        marketing_ai: 0.20
+        ecosystem: 0.25
+        infrastructure: 0.20
+    base_metrics:
+      sales_volume: 50        # 万台/季度（规模小）
+      revenue: 2.0            # 亿元
+      profit: -0.3            # 亿元（亏损中）
+      inventory: 30           # 万台
+      cash_reserve: 15.0      # 亿元
+      brand_heat: 48
+      tech_leadership: 40
+      market_share: 1
+      supply_stability: 40    # 小厂
+      customer_satisfaction: 70
+      morale: 80              # 创业激情

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "market_china_high_end_surge",
+    "title": "中国市场高端机型需求激增",
+    "description": "中国智能手机市场消费升级，6000元以上价位段同比增长25%，高端机型成为增长引擎。",
+    "category": "market",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "revenue", "direction": "up", "magnitude": "medium", "confidence": 0.8}
+    ],
+    "response_options": ["加大高端产品投入", "提升品牌溢价能力", "抢占高端渠道资源"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_india_feature_phone",
+    "title": "印度功能机市场仍有40%份额",
+    "description": "印度市场功能机仍占40%出货量，智能手机渗透率提升空间巨大，但价格敏感度极高。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["推出超低价智能机", "建设印度本地产线", "与运营商合作补贴"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_seaasian_growth",
+    "title": "东南亚市场出货量增长12%",
+    "description": "印尼、越南、菲律宾等东南亚市场智能手机出货量同比增长12%，中端机型需求旺盛。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "market_share", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加大东南亚渠道投入", "推出区域定制机型", "与本地电商深度合作"],
+    "duration_turns": 1
+  },
+  {
+    "id": "market_europe_5g_mandate",
+    "title": "欧盟强制USB-C接口标准",
+    "description": "欧盟统一充电接口法规正式实施，所有手机必须采用USB-C接口，影响产品设计和库存管理。",
+    "category": "policy",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6},
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["全线切换USB-C", "调整产品库存策略", "利用接口统一做生态布局"],
+    "duration_turns": 1
+  },
+  {
+    "id": "market_africa_emerging",
+    "title": "非洲市场进入快速增长期",
+    "description": "非洲智能手机渗透率突破50%，传音等品牌主导市场，但中端机型需求开始抬头。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["探索非洲市场机会", "推出适合当地需求的机型", "建设本地化售后网络"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_japan_carrier_lock",
+    "title": "日本运营商补贴政策调整",
+    "description": "日本三大运营商大幅削减购机补贴，裸机销售模式兴起，影响高端机型出货。",
+    "category": "market",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "down", "magnitude": "small", "confidence": 0.6},
+      {"metric": "revenue", "direction": "down", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["调整日本市场定价", "加强裸机渠道建设", "聚焦 unlocked 市场"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_latin_america_instability",
+    "title": "拉美市场汇率波动加剧",
+    "description": "巴西、阿根廷等国货币大幅贬值，进口手机成本飙升，部分品牌缩减出货目标。",
+    "category": "market",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6},
+      {"metric": "market_share", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["本地化生产规避汇率风险", "调整区域定价", "缩减高风险市场投入"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_middle_east_luxury",
+    "title": "中东市场高端机型需求旺盛",
+    "description": "海湾国家高端消费力强劲，折叠屏和超高端机型需求增长30%，利润率远超全球平均。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "revenue", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "profit", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加大中东高端渠道投入", "推出区域限定奢华版", "与奢侈品跨界联名"],
+    "duration_turns": 1
+  },
+  {
+    "id": "market_china_rural_sinking",
+    "title": "中国下沉市场换机潮来临",
+    "description": "三四线城市及农村市场进入4G转5G换机高峰期，1500-2500元价位段需求爆发。",
+    "category": "market",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "market_share", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["推出下沉市场定制机型", "加强线下渠道渗透", "加大电商百亿补贴参与"],
+    "duration_turns": 2
+  },
+  {
+    "id": "market_global_inventory_correction",
+    "title": "全球手机库存修正周期",
+    "description": "渠道库存去化完成，全球手机出货量触底反弹，品牌商开始恢复拉货，供应链回暖。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "supply_stability", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["积极备货迎接出货回暖", "维持精益库存策略", "抢占渠道补货窗口"],
+    "duration_turns": 1
+  }
+]

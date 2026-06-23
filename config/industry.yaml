@@ -1,0 +1,154 @@
+# World Game — 手机产业初始参数
+
+market:
+  global_shipments: 120000         # 全球年出货量（万台）
+  growth_rate: 0.02                # 年增长率
+  avg_selling_price: 3200          # 平均售价（元）
+  segments:
+    - name: "旗舰"
+      price_range: [5000, 12000]
+      share: 0.25
+    - name: "中端"
+      price_range: [2000, 5000]
+      share: 0.45
+    - name: "入门"
+      price_range: [500, 2000]
+      share: 0.30
+
+brands:
+  - id: "brand_apple"
+    name: "Apple"
+    market_share: 18
+    brand_heat: 90
+    tech_leadership: 85
+    focus: "ecosystem"
+  - id: "brand_samsung"
+    name: "Samsung"
+    market_share: 20
+    brand_heat: 75
+    tech_leadership: 80
+    focus: "display_and_chip"
+  - id: "brand_huawei"
+    name: "Huawei"
+    market_share: 12
+    brand_heat: 80
+    tech_leadership: 78
+    focus: "camera_and_chip"
+  - id: "brand_xiaomi"
+    name: "Xiaomi"
+    market_share: 14
+    brand_heat: 65
+    tech_leadership: 60
+    focus: "value_for_money"
+  - id: "brand_oppo"
+    name: "OPPO"
+    market_share: 9
+    brand_heat: 60
+    tech_leadership: 55
+    focus: "camera_and_design"
+  - id: "brand_vivo"
+    name: "vivo"
+    market_share: 8
+    brand_heat: 58
+    tech_leadership: 52
+    focus: "camera_and_audio"
+  - id: "brand_honor"
+    name: "Honor"
+    market_share: 6
+    brand_heat: 55
+    tech_leadership: 50
+    focus: "balanced"
+  - id: "brand_oneplus"
+    name: "OnePlus"
+    market_share: 3
+    brand_heat: 50
+    tech_leadership: 55
+    focus: "performance"
+  - id: "brand_nothing"
+    name: "Nothing"
+    market_share: 1
+    brand_heat: 45
+    tech_leadership: 40
+    focus: "design"
+  - id: "brand_google"
+    name: "Google Pixel"
+    market_share: 3
+    brand_heat: 60
+    tech_leadership: 75
+    focus: "ai_and_camera"
+
+technologies:
+  - id: "tech_5g"
+    name: "5G"
+    maturity: 0.7
+    impact_weight: 0.8
+  - id: "tech_foldable"
+    name: "折叠屏"
+    maturity: 0.3
+    impact_weight: 0.9
+  - id: "tech_ai_chip"
+    name: "AI 芯片"
+    maturity: 0.4
+    impact_weight: 0.85
+  - id: "tech_satellite"
+    name: "卫星通信"
+    maturity: 0.2
+    impact_weight: 0.5
+  - id: "tech_periscope"
+    name: "潜望长焦"
+    maturity: 0.5
+    impact_weight: 0.6
+  - id: "tech_ltpo"
+    name: "LTPO 屏幕"
+    maturity: 0.6
+    impact_weight: 0.5
+  - id: "tech_fast_charge"
+    name: "百瓦快充"
+    maturity: 0.7
+    impact_weight: 0.4
+  - id: "tech_under_display_camera"
+    name: "屏下摄像头"
+    maturity: 0.3
+    impact_weight: 0.6
+
+suppliers:
+  - id: "supplier_tsmc"
+    name: "台积电"
+    type: "芯片代工"
+    reliability: 0.95
+    capacity: "tight"
+  - id: "supplier_qualcomm"
+    name: "高通"
+    type: "芯片设计"
+    reliability: 0.85
+    capacity: "normal"
+  - id: "supplier_mediatek"
+    name: "联发科"
+    type: "芯片设计"
+    reliability: 0.80
+    capacity: "normal"
+  - id: "supplier_sony"
+    name: "索尼"
+    type: "影像传感器"
+    reliability: 0.90
+    capacity: "normal"
+  - id: "supplier_samsung_display"
+    name: "三星显示"
+    type: "屏幕面板"
+    reliability: 0.88
+    capacity: "normal"
+  - id: "supplier_boe"
+    name: "京东方"
+    type: "屏幕面板"
+    reliability: 0.75
+    capacity: "abundant"
+  - id: "supplier_atl"
+    name: "ATL"
+    type: "电池"
+    reliability: 0.85
+    capacity: "normal"
+  - id: "supplier_samsung_sdi"
+    name: "三星SDI"
+    type: "电池"
+    reliability: 0.82
+    capacity: "normal"

@@ -1,0 +1,163 @@
+[
+  {
+    "id": "supply_geo_political",
+    "title": "地缘政治冲突影响芯片供应链",
+    "description": "主要芯片生产地区地缘政治紧张局势升级，先进制程芯片出口受限，影响全球手机供应链。",
+    "category": "supply_chain",
+    "severity": "critical",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "large", "confidence": 0.9},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加速芯片国产替代", "囤积关键芯片库存", "调整产品线规避受限制程"],
+    "chain_effects": ["产品发布延期", "成本大幅上升", "技术路线被迫调整"],
+    "duration_turns": 3
+  },
+  {
+    "id": "supply_tsmc_capacity",
+    "title": "台积电3nm产能争夺白热化",
+    "description": "台积电3nm制程产能有限，各大手机品牌竞相争夺优先分配权，中小品牌面临断供风险。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.7}
+    ],
+    "response_options": ["与台积电签订长期产能协议", "转向三星代工", "采用4nm成熟方案降级应对"],
+    "chain_effects": ["旗舰芯片成本上涨20%", "产品竞争力分化"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_foldable_hinge",
+    "title": "折叠屏铰链供应瓶颈",
+    "description": "折叠屏铰链核心组件产能不足，全球仅2-3家供应商能够稳定供货，制约折叠屏出货量。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "sales_volume", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["投资铰链自研产线", "与供应商深度绑定", "推迟折叠屏产品发布"],
+    "chain_effects": ["折叠屏产能受限", "高端市场份额争夺加剧"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_battery_material",
+    "title": "锂离子电池原材料价格波动",
+    "description": "碳酸锂价格剧烈波动，电池成本占BOM比例从12%飙升至18%，影响中低端机型利润。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "profit", "direction": "down", "magnitude": "medium", "confidence": 0.7}
+    ],
+    "response_options": ["锁定长期原材料合约", "研发硅碳负极降低依赖", "调整产品定价策略"],
+    "chain_effects": ["中低端机型利润收窄", "行业洗牌加速"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_camera_module",
+    "title": "潜望长焦模组产能瓶颈",
+    "description": "潜望式长焦镜头模组组装良率低，全球月产能不足500万套，制约影像旗舰出货。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "small", "confidence": 0.6},
+      {"metric": "sales_volume", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["与镜头模组厂合资建线", "采用替代长焦方案", "缩减影像旗舰出货目标"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_logistics_red_sea",
+    "title": "红海航运中断影响全球物流",
+    "description": "红海航线受阻，亚欧海运绕行好望角，物流周期延长2周，海运成本上涨40%。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["增加欧洲本地仓储", "切换空运保障旗舰供应", "调整区域上市节奏"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_display_boe_breakthrough",
+    "title": "京东方LTPO面板良率突破",
+    "description": "京东方LTPO OLED面板良率突破85%，打破三星垄断，国产面板价格优势显著。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "supply_stability", "direction": "up", "magnitude": "small", "confidence": 0.8}
+    ],
+    "response_options": ["全面切换国产面板", "维持双源策略", "利用成本优势提升配置"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_silicon_carbon",
+    "title": "硅碳负极电池量产突破",
+    "description": "硅碳负极电池技术实现规模化量产，能量密度提升15%，多家供应商竞相扩产。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "supply_stability", "direction": "up", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["首批采用硅碳电池", "与供应商联合定制", "观望等待成本下降"],
+    "duration_turns": 1
+  },
+  {
+    "id": "supply_storage_price_drop",
+    "title": "存储芯片价格进入下行周期",
+    "description": "DRAM和NAND闪存价格进入下行周期，预计未来两季度降幅20-30%，有利于降低BOM成本。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "profit", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["增加存储配置提升产品力", "锁定低价长期合约", "维持现有采购节奏"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_components_concentration",
+    "title": "零部件供应商集中度风险",
+    "description": "行业调研显示，手机核心零部件前三大供应商集中度超过80%，供应链韧性面临考验。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["推进供应链多元化", "建立战略储备", "投资二线供应商"],
+    "duration_turns": 1
+  },
+  {
+    "id": "supply_esg_audit",
+    "title": "ESG审计冲击供应链",
+    "description": "国际ESG标准趋严，多家供应商因劳工或环保问题被暂停合作，需要紧急寻找替代方案。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.6},
+      {"metric": "brand_heat", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["全面审查供应链ESG合规", "增加合规预算", "公开承诺负责任采购"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_trade_tariff",
+    "title": "贸易关税政策调整",
+    "description": "主要市场对进口电子产品加征关税，直接影响手机出口利润，需要重新评估全球定价策略。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "market_share", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["在目标市场建本地产线", "调整全球定价策略", "转移目标市场重心"],
+    "chain_effects": ["出口利润收窄", "区域策略调整"],
+    "duration_turns": 3
+  }
+]

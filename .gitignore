@@ -1,0 +1,38 @@
+# Environment
+.env
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environment
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Data caches
+data/social_cache/
+*.db-journal
+*.db-wal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

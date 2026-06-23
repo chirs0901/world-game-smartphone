@@ -1,0 +1,108 @@
+[
+  {
+    "id": "brand_cross_border_collab",
+    "title": "奢侈品牌联名引爆社交媒体",
+    "description": "与顶级奢侈品牌联名款手机发布，社交媒体话题阅读量破10亿，品牌热度飙升。",
+    "category": "competitor",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "market_share", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["跟进推出联名款", "加大自有品牌建设", "聚焦产品力而非营销"],
+    "duration_turns": 1
+  },
+  {
+    "id": "brand_kol_scandal",
+    "title": "代言人负面事件波及品牌",
+    "description": "品牌代言人卷入负面事件，社交媒体舆论发酵，品牌形象受损，需要紧急危机公关。",
+    "category": "competitor",
+    "severity": "high",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["紧急终止代言合同", "启动危机公关预案", "快速更换代言人"],
+    "chain_effects": ["短期销量下滑", "营销预算超支"],
+    "duration_turns": 2
+  },
+  {
+    "id": "brand_viral_marketing",
+    "title": "短视频营销意外爆款",
+    "description": "一条产品体验短视频在抖音/快手平台意外走红，播放量破5亿，带来大量自然流量。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "medium", "confidence": 0.6},
+      {"metric": "sales_volume", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["追加短视频营销预算", "快速响应承接流量", "签约创作者深度合作"],
+    "duration_turns": 1
+  },
+  {
+    "id": "brand_flagship_store",
+    "title": "旗舰店开业引爆品牌关注",
+    "description": "在核心商圈开设品牌旗舰店，开业活动吸引大量媒体报道和消费者到访，品牌形象升级。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["加大旗舰店投入", "在更多城市复制", "结合线上直播放大效果"],
+    "duration_turns": 1
+  },
+  {
+    "id": "brand_price_war",
+    "title": "竞品发起价格战",
+    "description": "主要竞争对手大幅降价促销，旗舰机型直降1000元，行业利润空间被压缩。",
+    "category": "competitor",
+    "severity": "high",
+    "impacts": [
+      {"metric": "market_share", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "profit", "direction": "down", "magnitude": "medium", "confidence": 0.8}
+    ],
+    "response_options": ["跟进降价保份额", "坚持定价走差异化", "加大赠品力度变相降价"],
+    "chain_effects": ["行业利润率下降", "中小品牌生存压力增大"],
+    "duration_turns": 2
+  },
+  {
+    "id": "brand_user_community",
+    "title": "用户社区运营成效显著",
+    "description": "品牌粉丝社区活跃度提升，UGC内容增长50%，用户忠诚度和复购率显著提高。",
+    "category": "consumer",
+    "severity": "low",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["加大社区运营投入", "推出用户共创计划", "举办粉丝线下活动"],
+    "duration_turns": 1
+  },
+  {
+    "id": "brand_after_sales",
+    "title": "售后服务口碑两极分化",
+    "description": "行业售后服务满意度调查发布，部分品牌因维修慢、收费高被点名，影响品牌口碑。",
+    "category": "consumer",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "brand_heat", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["全面升级售后体系", "推出碎屏险等增值服务", "缩短维修周期承诺"],
+    "duration_turns": 2
+  },
+  {
+    "id": "brand_esg_rating",
+    "title": "ESG评级提升吸引机构投资者",
+    "description": "品牌ESG评级从BBB升至A，被纳入多个ESG指数，机构持股比例上升，股价表现强劲。",
+    "category": "market",
+    "severity": "low",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "up", "magnitude": "small", "confidence": 0.5},
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.4}
+    ],
+    "response_options": ["持续提升ESG表现", "加大可持续发展投入", "发布ESG年度报告"],
+    "duration_turns": 1
+  }
+]

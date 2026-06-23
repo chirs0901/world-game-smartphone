@@ -1,0 +1,73 @@
+# World Game — LLM 模型配置
+# 按功能模块分配不同的模型提供商和参数，平衡质量与成本
+
+models:
+  # 推演引擎 — 需要强推理能力
+  simulation:
+    provider: "openai"
+    model_name: "gpt-4o"
+    max_tokens: 4000
+    temperature: 0.4
+
+  # 事件生成 — 快速模型即可
+  event_generation:
+    provider: "openai"
+    model_name: "gpt-4o-mini"
+    max_tokens: 2000
+    temperature: 0.8
+
+  # 新闻结构化 — 快速模型
+  news_analysis:
+    provider: "openai"
+    model_name: "gpt-4o-mini"
+    max_tokens: 1000
+    temperature: 0.2
+
+  # AI 董事会角色发言 — 中等模型
+  agent_statement:
+    provider: "openai"
+    model_name: "gpt-4o-mini"
+    max_tokens: 1500
+    temperature: 0.6
+
+  # 辩论分析 — 快速模型
+  debate_analysis:
+    provider: "openai"
+    model_name: "gpt-4o-mini"
+    max_tokens: 1000
+    temperature: 0.3
+
+  # 回合叙事总结 — 创意模型
+  narrative:
+    provider: "openai"
+    model_name: "gpt-4o"
+    max_tokens: 2000
+    temperature: 0.7
+
+  # 趋势分析
+  trend_analysis:
+    provider: "openai"
+    model_name: "gpt-4o-mini"
+    max_tokens: 2000
+    temperature: 0.4
+
+# Provider 配置
+providers:
+  openai:
+    base_url: "https://api.openai.com/v1"
+    # API key 从环境变量 OPENAI_API_KEY 读取
+
+  anthropic:
+    # API key 从环境变量 ANTHROPIC_API_KEY 读取
+
+  deepseek:
+    base_url: "https://api.deepseek.com/v1"
+    # API key 从环境变量 DEEPSEEK_API_KEY 读取
+
+  zhipu:
+    base_url: "https://open.bigmodel.cn/api/paas/v4/"
+    # API key 从环境变量 ZHIPU_API_KEY 读取
+
+  local:
+    base_url: "http://localhost:11434/v1"
+    api_key: "ollama"

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "tech_ai_phone",
+    "title": "AI手机概念爆发",
+    "description": "端侧AI大模型成为行业热点，各厂商纷纷布局AI手机赛道。",
+    "category": "technology",
+    "severity": "high",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["投入AI大模型研发", "与AI公司合作", "保持观望"],
+    "chain_effects": ["芯片需求变化", "应用生态演进"],
+    "duration_turns": 3
+  },
+  {
+    "id": "tech_satellite",
+    "title": "卫星通信技术突破",
+    "description": "手机直连卫星通信技术取得重大突破，高端机型将率先搭载。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.8}
+    ],
+    "response_options": ["启动卫星通信研发", "与通信厂商合作", "等待技术成熟"],
+    "duration_turns": 2
+  },
+  {
+    "id": "tech_battery",
+    "title": "固态电池量产在即",
+    "description": "固态电池技术取得关键突破，能量密度提升50%，预计明年量产。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "supply_stability", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["与电池厂签订独家协议", "投资电池研发", "等待市场供应"],
+    "duration_turns": 2
+  },
+  {
+    "id": "tech_camera",
+    "title": "计算摄影新范式",
+    "description": "AI驱动的影像处理技术开辟新赛道，传统光学巨头面临转型压力。",
+    "category": "technology",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["加大影像算法投入", "与相机品牌联名", "主攻视频拍摄"],
+    "duration_turns": 1
+  },
+  {
+    "id": "tech_ar_glass",
+    "title": "AR眼镜冲击手机市场",
+    "description": "多家科技巨头发布AR眼镜产品，分析师预测将分流部分手机用户。",
+    "category": "technology",
+    "severity": "high",
+    "impacts": [
+      {"metric": "sales_volume", "direction": "down", "magnitude": "small", "confidence": 0.5},
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "small", "confidence": 0.4}
+    ],
+    "response_options": ["启动AR设备研发", "投资AR创业公司", "专注手机差异化"],
+    "duration_turns": 3
+  },
+  {
+    "id": "tech_os_ecosystem",
+    "title": "操作系统生态竞争加剧",
+    "description": "自研操作系统成为巨头新战场，生态壁垒正在重构。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.6}
+    ],
+    "response_options": ["投入自研OS", "加入开源生态", "深化Android合作"],
+    "duration_turns": 3
+  },
+  {
+    "id": "tech_chip_3nm",
+    "title": "3nm芯片良率问题",
+    "description": "3nm制程芯片良率不足60%，可能导致高端芯片供应紧张。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "tech_leadership", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["提前锁定芯片产能", "转向4nm方案", "分散芯片供应商"],
+    "duration_turns": 2
+  },
+  {
+    "id": "tech_wireless_charge",
+    "title": "无线充电标准统一",
+    "description": "行业无线充电新标准发布，充电功率提升至100W，配件生态面临洗牌。",
+    "category": "technology",
+    "severity": "low",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["快速适配新标准", "开发差异化配件", "维持现有方案"],
+    "duration_turns": 1
+  },
+  {
+    "id": "tech_foldable_mature",
+    "title": "折叠屏技术成熟",
+    "description": "折叠屏铰链和屏幕良率突破90%，成本大幅下降，进入主流价位段。",
+    "category": "technology",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "market_share", "direction": "up", "magnitude": "small", "confidence": 0.6},
+      {"metric": "brand_heat", "direction": "up", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["推出折叠屏产品", "差异化定价策略", "聚焦直板旗舰"],
+    "duration_turns": 2
+  },
+  {
+    "id": "tech_ai_agent",
+    "title": "AI Agent手机助手崛起",
+    "description": "AI Agent能自主完成复杂任务，成为手机新卖点。",
+    "category": "technology",
+    "severity": "high",
+    "impacts": [
+      {"metric": "brand_heat", "direction": "up", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "medium", "confidence": 0.8}
+    ],
+    "response_options": ["自研AI Agent", "接入第三方AI服务", "专注传统智能助手"],
+    "duration_turns": 2
+  }
+]

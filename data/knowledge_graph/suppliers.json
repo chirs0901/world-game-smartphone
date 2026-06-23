@@ -1,0 +1,78 @@
+[
+  {
+    "id": "supplier_tsmc", "type": "supplier", "name": "台积电",
+    "attributes": {"type_detail": "芯片代工", "reliability": 0.95, "capacity": "tight", "country": "TW"},
+    "relations": [
+      {"target_id": "brand_apple", "relation_type": "supplies", "weight": 0.95},
+      {"target_id": "supplier_qualcomm", "relation_type": "manufactures_for", "weight": 0.8},
+      {"target_id": "supplier_mediatek", "relation_type": "manufactures_for", "weight": 0.85}
+    ]
+  },
+  {
+    "id": "supplier_qualcomm", "type": "supplier", "name": "高通",
+    "attributes": {"type_detail": "芯片设计", "reliability": 0.85, "capacity": "normal", "country": "US"},
+    "relations": [
+      {"target_id": "brand_xiaomi", "relation_type": "supplies", "weight": 0.85},
+      {"target_id": "brand_oppo", "relation_type": "supplies", "weight": 0.7},
+      {"target_id": "brand_honor", "relation_type": "supplies", "weight": 0.8},
+      {"target_id": "supplier_tsmc", "relation_type": "depends_on", "weight": 0.9},
+      {"target_id": "supplier_mediatek", "relation_type": "competes_with", "weight": 0.9}
+    ]
+  },
+  {
+    "id": "supplier_mediatek", "type": "supplier", "name": "联发科",
+    "attributes": {"type_detail": "芯片设计", "reliability": 0.80, "capacity": "normal", "country": "TW"},
+    "relations": [
+      {"target_id": "brand_vivo", "relation_type": "supplies", "weight": 0.75},
+      {"target_id": "brand_xiaomi", "relation_type": "supplies", "weight": 0.6},
+      {"target_id": "supplier_tsmc", "relation_type": "depends_on", "weight": 0.85},
+      {"target_id": "supplier_qualcomm", "relation_type": "competes_with", "weight": 0.9}
+    ]
+  },
+  {
+    "id": "supplier_sony", "type": "supplier", "name": "索尼",
+    "attributes": {"type_detail": "影像传感器", "reliability": 0.90, "capacity": "normal", "country": "JP"},
+    "relations": [
+      {"target_id": "tech_periscope", "relation_type": "enables", "weight": 0.7},
+      {"target_id": "brand_apple", "relation_type": "supplies", "weight": 0.8},
+      {"target_id": "brand_huawei", "relation_type": "supplies", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "supplier_samsung_display", "type": "supplier", "name": "三星显示",
+    "attributes": {"type_detail": "屏幕面板", "reliability": 0.88, "capacity": "normal", "country": "KR"},
+    "relations": [
+      {"target_id": "tech_ltpo", "relation_type": "enables", "weight": 0.8},
+      {"target_id": "tech_foldable", "relation_type": "enables", "weight": 0.85},
+      {"target_id": "brand_apple", "relation_type": "supplies", "weight": 0.75},
+      {"target_id": "brand_samsung", "relation_type": "supplies", "weight": 0.95}
+    ]
+  },
+  {
+    "id": "supplier_boe", "type": "supplier", "name": "京东方",
+    "attributes": {"type_detail": "屏幕面板", "reliability": 0.75, "capacity": "abundant", "country": "CN"},
+    "relations": [
+      {"target_id": "tech_ltpo", "relation_type": "enables", "weight": 0.5},
+      {"target_id": "brand_huawei", "relation_type": "supplies", "weight": 0.8},
+      {"target_id": "brand_xiaomi", "relation_type": "supplies", "weight": 0.6},
+      {"target_id": "supplier_samsung_display", "relation_type": "competes_with", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "supplier_atl", "type": "supplier", "name": "ATL",
+    "attributes": {"type_detail": "电池", "reliability": 0.85, "capacity": "normal", "country": "CN"},
+    "relations": [
+      {"target_id": "tech_fast_charge", "relation_type": "enables", "weight": 0.7},
+      {"target_id": "brand_apple", "relation_type": "supplies", "weight": 0.7},
+      {"target_id": "brand_xiaomi", "relation_type": "supplies", "weight": 0.6}
+    ]
+  },
+  {
+    "id": "supplier_samsung_sdi", "type": "supplier", "name": "三星SDI",
+    "attributes": {"type_detail": "电池", "reliability": 0.82, "capacity": "normal", "country": "KR"},
+    "relations": [
+      {"target_id": "brand_samsung", "relation_type": "supplies", "weight": 0.9},
+      {"target_id": "supplier_atl", "relation_type": "competes_with", "weight": 0.6}
+    ]
+  }
+]

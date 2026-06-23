@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机全产业模拟经营游戏配套专业研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-amber {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05));
+        }
+        .highlight-gradient-rose {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0), rgba(244, 63, 94, 0.05));
+        }
+        .highlight-gradient-sky {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.05));
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 报告标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">手机全产业模拟经营游戏</h1>
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-600 mb-6">配套专业研究报告</h2>
+                    <p class="text-lg text-gray-500 max-w-3xl mx-auto">覆盖1/3/5年游戏时间跨度，适配行业从业者认知深度，为游戏提供可量化、可决策化、贴合行业真实运营逻辑的专业支撑。</p>
+                </div>
+            </div>
+
+            <!-- 核心摘要卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-purple-600 mb-4 flex items-center"><i class="fas fa-lightbulb mr-3"></i>核心摘要</h2>
+                    <p class="text-gray-700 leading-relaxed">本报告基于Counterpoint、IDC、Canalys、TrendForce集邦咨询、Omdia、赛诺等全球权威手机产业咨询机构2025-2026年最新季度追踪数据，系统性拆解手机产业全链路经营逻辑，为手机全产业模拟经营类游戏提供专业支撑。报告覆盖游戏设计必需的<span class="font-bold text-purple-700">六大核心经营维度</span>：硬件技术研发、产品路线决策、市场操盘和销售、供应链管理、品牌营销、软件系统，同时锚定<span class="font-bold text-purple-700">五大头部厂商</span>的真实经营策略。</p>
+                </div>
+            </div>
+
+            <!-- 六大核心经营维度卡片 -->
+            <div class="card md:col-span-2 md:row-span-2 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative z-10 flex-grow flex flex-col">
+                    <h2 class="text-2xl font-bold text-green-600 mb-6 flex items-center"><i class="fas fa-sitemap mr-3"></i>六大核心经营维度</h2>
+                    <div class="space-y-4 flex-grow">
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">硬件技术研发</h3>
+                            <p class="text-sm text-gray-600">关键器件技术路线选型、研发投入预算分配、技术联合研发</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">产品路线决策</h3>
+                            <p class="text-sm text-gray-600">市场细分定位、产品线价格区间布局、机型配置及迭代节奏</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">市场操盘和销售</h3>
+                            <p class="text-sm text-gray-600">区域市场进入顺序、渠道结构布局、渠道铺货及销管投入</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">供应链管理</h3>
+                            <p class="text-sm text-gray-600">核心器件供应商选择、采购成本/交货期管控、安全库存</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">品牌营销</h3>
+                            <p class="text-sm text-gray-600">品牌定位及差异化心智打造、营销预算及投放渠道选择</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-gray-800">软件系统</h3>
+                            <p class="text-sm text-gray-600">操作系统选型、定制化UI/UX开发、软硬件协同优化</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 权威数据源卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-amber-600 mb-4 flex items-center"><i class="fas fa-database mr-3"></i>权威数据源</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-chart-line text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">Counterpoint</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-chart-bar text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">IDC</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-globe text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">Canalys</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-microchip text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">TrendForce</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-industry text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">Omdia</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-store text-2xl text-amber-500 mb-2"></i>
+                            <p class="text-sm font-medium">赛诺</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 头部厂商卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-rose-600 mb-4 flex items-center"><i class="fas fa-mobile-alt mr-3"></i>头部厂商</h2>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fab fa-apple text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">Apple</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-mobile-alt text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">华为</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-mobile-alt text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">三星</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-mobile-alt text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">小米</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-mobile-alt text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">荣耀</p>
+                        </div>
+                        <div class="bg-white/50 p-3 rounded-lg text-center">
+                            <i class="fas fa-mobile-alt text-2xl text-rose-500 mb-2"></i>
+                            <p class="text-sm font-medium">vivo/OPPO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 市场分析图表卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-sky"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-sky-600 mb-4 flex items-center"><i class="fas fa-chart-pie mr-3"></i>全球智能手机市场价格带分布</h2>
+                    <div class="h-80">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技术路线图卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-blue-600 mb-6 flex items-center"><i class="fas fa-road mr-3"></i>关键器件技术路线图（2026-2030）</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-blue-50 text-blue-700">
+                                    <th class="p-3 text-left rounded-tl-lg">器件类别</th>
+                                    <th class="p-3 text-center">短期 (1年)</th>
+                                    <th class="p-3 text-center">中期 (3年)</th>
+                                    <th class="p-3 text-center rounded-tr-lg">长期 (5年)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-3 font-medium">芯片 (SoC)</td>
+                                    <td class="p-3 text-center">3nm/2nm 旗舰制程</td>
+                                    <td class="p-3 text-center">2nm 主流，AI算力下沉</td>
+                                    <td class="p-3 text-center">3nm+ 量产，SiP技术</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-3 font-medium">屏幕 (显示)</td>
+                                    <td class="p-3 text-center">LTPO POLED，折叠屏UTG</td>
+                                    <td class="p-3 text-center">LTPO 下沉，折叠屏轻量化</td>
+                                    <td class="p-3 text-center">多形态折叠，硅基OLED</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-3 font-medium">影像</td>
+                                    <td class="p-3 text-center">1英寸大底，潜望长焦</td>
+                                    <td class="p-3 text-center">潜望长焦普及，AI下沉</td>
+                                    <td class="p-3 text-center">8K视频，连续光学变焦</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-3 font-medium">电池</td>
+                                    <td class="p-3 text-center">硅碳负极，80W快充</td>
+                                    <td class="p-3 text-center">硅碳普及，固态试点</td>
+                                    <td class="p-3 text-center">固态电池量产</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">AI (端侧)</td>
+                                    <td class="p-3 text-center">专用NPU，轻量化模型</td>
+                                    <td class="p-3 text-center">大模型参数提升，能力下沉</td>
+                                    <td class="p-3 text-center">智能体AI，场景深度融合</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 区域市场卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-purple-600 mb-6 flex items-center"><i class="fas fa-globe-americas mr-3"></i>六大核心区域市场</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">中国区</h3>
+                            <p class="text-sm text-gray-600 mb-2">最成熟、竞争最激烈的高端化存量市场。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 34.2%</p>
+                                <p><span class="font-medium">中高端:</span> 约50%</p>
+                                <p><span class="font-medium">入门级:</span> 约22%</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">东南亚</h3>
+                            <p class="text-sm text-gray-600 mb-2">增长最快的增量市场，线下渠道为主。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 约15%</p>
+                                <p><span class="font-medium">中高端:</span> 约40%</p>
+                                <p><span class="font-medium">入门级:</span> 约45%</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">中东&非洲</h3>
+                            <p class="text-sm text-gray-600 mb-2">高潜力、高风险的差异化市场。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 约20%</p>
+                                <p><span class="font-medium">中高端:</span> 约35%</p>
+                                <p><span class="font-medium">入门级:</span> 约45%</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">拉美</h3>
+                            <p class="text-sm text-gray-600 mb-2">经济波动、潜力显著的新兴市场。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 约15%</p>
+                                <p><span class="font-medium">中高端:</span> 约30%</p>
+                                <p><span class="font-medium">入门级:</span> 约55%</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">欧洲</h3>
+                            <p class="text-sm text-gray-600 mb-2">成熟、高用户价值的高端市场。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 约45%</p>
+                                <p><span class="font-medium">中高端:</span> 约35%</p>
+                                <p><span class="font-medium">入门级:</span> 约20%</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">北美</h3>
+                            <p class="text-sm text-gray-600 mb-2">高门槛、高溢价的寡头成熟市场。</p>
+                            <div class="text-xs text-purple-700">
+                                <p><span class="font-medium">高端旗舰:</span> 约60%</p>
+                                <p><span class="font-medium">中高端:</span> 约30%</p>
+                                <p><span class="font-medium">入门级:</span> 约10%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 供应链风险卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-rose-600 mb-6 flex items-center"><i class="fas fa-exclamation-triangle mr-3"></i>供应链风险游戏化复刻</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2 flex items-center"><i class="fas fa-chart-line text-rose-500 mr-2"></i>价格波动风险</h3>
+                            <p class="text-sm text-gray-600 mb-2">存储、显示、影像类器件价格受供需关系及上游原材料成本波动影响，短期涨幅可达两位数级别。</p>
+                            <p class="text-xs text-rose-700"><span class="font-medium">游戏规则:</span> 随机事件触发后，核心器件现货价格短期涨幅超过行业平均水平；签订长期采购协议的玩家价格不受影响。</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2 flex items-center"><i class="fas fa-ban text-rose-500 mr-2"></i>产能短缺风险</h3>
+                            <p class="text-sm text-gray-600 mb-2">先进制程芯片、折叠屏面板、高端影像、存储器件的产能长期紧张；供应商优先保障头部厂商的长期战略订单。</p>
+                            <p class="text-xs text-rose-700"><span class="font-medium">游戏规则:</span> 随机事件触发后，供应商临时压缩非核心客户产能；没有长期产能锁定协议的玩家，产品量产交付周期延长。</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2 flex items-center"><i class="fas fa-clock text-rose-500 mr-2"></i>交付延迟风险</h3>
+                            <p class="text-sm text-gray-600 mb-2">国际物流、跨境报关、区域运输、供应商生产良率波动导致器件交付延迟；部分地区港口罢工、物流管制风险概率较高。</p>
+                            <p class="text-xs text-rose-700"><span class="font-medium">游戏规则:</span> 随机事件触发后，器件物流交付周期延长至少15天；玩家生产上线时间延迟，直接错过产品首发窗口及销售旺季。</p>
+                        </div>
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2 flex items-center"><i class="fas fa-tools text-rose-500 mr-2"></i>质量风险</h3>
+                            <p class="text-sm text-gray-600 mb-2">部分批次器件存在生产质量缺陷，或适配兼容性问题；供应商提供的 samples 样品与量产批次存在差异。</p>
+                            <p class="text-xs text-rose-700"><span class="font-medium">游戏规则:</span> 随机事件触发后，玩家需要选择是否紧急召回已上市产品、或与供应商协商赔偿方案，面临直接经济损失及品牌声誉风险。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 市场分析图表
+        const ctx = document.getElementById('marketChart').getContext('2d');
+        const marketChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['中国区', '东南亚', '中东&非洲', '拉美', '欧洲', '北美'],
+                datasets: [
+                    {
+                        label: '高端旗舰 (>800$)',
+                        data: [34.2, 15, 20, 15, 45, 60],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '中高端 (400-800$)',
+                        data: [50, 40, 35, 30, 35, 30],
+                        backgroundColor: 'rgba(168, 85, 247, 0.7)',
+                        borderColor: 'rgba(168, 85, 247, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '入门级 (<400$)',
+                        data: [22, 45, 45, 55, 20, 10],
+                        backgroundColor: 'rgba(34, 197, 94, 0.7)',
+                        borderColor: 'rgba(34, 197, 94, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

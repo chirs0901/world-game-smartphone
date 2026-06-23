@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>手机产业全链路情报RSS订阅库</title>
+    <dateCreated>2026-06-24</dateCreated>
+    <ownerName>World Game 产业情报平台</ownerName>
+  </head>
+  <body>
+    <!-- 一、手机品牌动态 -->
+    <outline text="手机品牌动态" title="手机品牌动态">
+      <outline type="rss" text="GSMArena 全球新机发布" title="GSMArena News" xmlUrl="https://www.gsmarena.com/rss-news.xml" htmlUrl="https://www.gsmarena.com/"/>
+      <outline type="rss" text="Counterpoint Research 市场分析" title="Counterpoint" xmlUrl="https://www.counterpointresearch.com/feed/" htmlUrl="https://www.counterpointresearch.com/"/>
+      <outline type="rss" text="Gizmochina 中国厂商出海" title="Gizmochina" xmlUrl="https://www.gizmochina.com/feed/" htmlUrl="https://www.gizmochina.com/"/>
+      <outline type="rss" text="PhoneArena 北美市场" title="PhoneArena" xmlUrl="https://www.phonearena.com/feed" htmlUrl="https://www.phonearena.com/"/>
+      <outline type="rss" text="IT之家 手机频道" title="IT之家" xmlUrl="https://www.ithome.com/rss/" htmlUrl="https://www.ithome.com/"/>
+      <outline type="rss" text="手机中国 终端零售" title="手机中国" xmlUrl="http://www.cnmo.com/rss/" htmlUrl="http://www.cnmo.com/"/>
+    </outline>
+
+    <!-- 二、屏幕显示 -->
+    <outline text="屏幕显示" title="屏幕显示">
+      <outline type="rss" text="TrendForce 面板价格/产能" title="TrendForce" xmlUrl="https://www.trendforce.com/rss/" htmlUrl="https://www.trendforce.com/"/>
+      <outline type="rss" text="集微网 显示面板供应链" title="集微网-面板" xmlUrl="https://www.laoyaoba.com/feed/" htmlUrl="https://www.laoyaoba.com/"/>
+      <outline type="rss" text="Engadget 显示技术评测" title="Engadget" xmlUrl="https://cn.engadget.com/rss.xml" htmlUrl="https://cn.engadget.com/"/>
+    </outline>
+
+    <!-- 三、平台芯片 -->
+    <outline text="平台芯片" title="平台芯片">
+      <outline type="rss" text="Counterpoint 芯片市场分析" title="Counterpoint" xmlUrl="https://www.counterpointresearch.com/feed/" htmlUrl="https://www.counterpointresearch.com/"/>
+      <outline type="rss" text="AnandTech 半导体深度评测" title="AnandTech" xmlUrl="https://www.anandtech.com/feed/" htmlUrl="https://www.anandtech.com/"/>
+      <outline type="rss" text="Semiconductor Engineering" title="SemiEngineering" xmlUrl="https://semiengineering.com/feed/" htmlUrl="https://semiengineering.com/"/>
+    </outline>
+
+    <!-- 四、影像 -->
+    <outline text="影像" title="影像">
+      <outline type="rss" text="DPReview 移动摄影" title="DPReview Mobile" xmlUrl="https://www.dpreview.com/feeds/reviews.xml" htmlUrl="https://www.dpreview.com/"/>
+      <outline type="rss" text="Counterpoint 中文站 智能手机" title="Counterpoint CN" xmlUrl="https://china.counterpointresearch.com/tag/%e6%99%ba%e8%83%bd%e6%89%8b%e6%9c%ba%e5%b8%82%e5%9c%ba/feed/" htmlUrl="https://china.counterpointresearch.com/"/>
+    </outline>
+
+    <!-- 五、散热 -->
+    <outline text="散热" title="散热">
+      <outline type="rss" text="Notebookcheck 散热评测" title="Notebookcheck" xmlUrl="https://www.notebookcheck.net/News.152.0.html?&amp;type=98" htmlUrl="https://www.notebookcheck.net/"/>
+    </outline>
+
+    <!-- 六、电池 -->
+    <outline text="电池" title="电池">
+      <outline type="rss" text="TrendForce 电池/新能源" title="TrendForce-EV" xmlUrl="https://www.trendforce.com/rss/" htmlUrl="https://www.trendforce.com/"/>
+      <outline type="rss" text="GSMArena 电池测试" title="GSMArena-Battery" xmlUrl="https://www.gsmarena.com/rss-news.xml" htmlUrl="https://www.gsmarena.com/"/>
+    </outline>
+
+    <!-- 七、存储供应 -->
+    <outline text="存储供应" title="存储供应">
+      <outline type="rss" text="IDC 全球出货量报告" title="IDC Press" xmlUrl="https://www.idc.com/rss/idcpressreleases.xml" htmlUrl="https://www.idc.com/"/>
+      <outline type="rss" text="C114通信网 终端频道" title="C114" xmlUrl="http://www.c114.com.cn/rss/rss_news_51.xml" htmlUrl="http://www.c114.com.cn/"/>
+      <outline type="rss" text="网易科技 手机频道" title="网易科技" xmlUrl="http://mobile.163.com/special/00111K7S/rss_mobilexj.xml" htmlUrl="http://mobile.163.com/"/>
+    </outline>
+
+    <!-- 八、AI -->
+    <outline text="AI" title="AI">
+      <outline type="rss" text="GSMA 全球移动通信协会 AI专题" title="GSMA AI" xmlUrl="https://www.gsma.com/newsroom/feed/" htmlUrl="https://www.gsma.com/newsroom/"/>
+      <outline type="rss" text="Omdia AI/通信洞察" title="Omdia" xmlUrl="https://omdia.techtarget.com/rss/" htmlUrl="https://omdia.techtarget.com/"/>
+      <outline type="rss" text="RCR Wireless 通信/AI" title="RCR Wireless" xmlUrl="https://www.rcrwireless.com/feed" htmlUrl="https://www.rcrwireless.com/"/>
+    </outline>
+  </body>
+</opml>

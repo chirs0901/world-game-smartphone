@@ -1,0 +1,75 @@
+[
+  {
+    "id": "brand_apple", "type": "brand", "name": "Apple",
+    "attributes": {"market_share": 18, "brand_heat": 90, "tech_leadership": 85, "focus": "ecosystem", "country": "US"},
+    "relations": [
+      {"target_id": "supplier_tsmc", "relation_type": "uses_supplier", "weight": 0.95},
+      {"target_id": "tech_ai_chip", "relation_type": "invests_in", "weight": 0.9},
+      {"target_id": "brand_samsung", "relation_type": "competes_with", "weight": 0.9},
+      {"target_id": "brand_huawei", "relation_type": "competes_with", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "brand_samsung", "type": "brand", "name": "Samsung",
+    "attributes": {"market_share": 20, "brand_heat": 75, "tech_leadership": 80, "focus": "display_and_chip", "country": "KR"},
+    "relations": [
+      {"target_id": "supplier_samsung_display", "relation_type": "owns", "weight": 1.0},
+      {"target_id": "brand_apple", "relation_type": "competes_with", "weight": 0.9},
+      {"target_id": "tech_foldable", "relation_type": "invests_in", "weight": 0.85},
+      {"target_id": "brand_huawei", "relation_type": "competes_with", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "brand_huawei", "type": "brand", "name": "Huawei",
+    "attributes": {"market_share": 12, "brand_heat": 80, "tech_leadership": 78, "focus": "camera_and_chip", "country": "CN"},
+    "relations": [
+      {"target_id": "brand_apple", "relation_type": "competes_with", "weight": 0.7},
+      {"target_id": "brand_xiaomi", "relation_type": "competes_with", "weight": 0.6},
+      {"target_id": "tech_satellite", "relation_type": "invests_in", "weight": 0.8},
+      {"target_id": "tech_ai_chip", "relation_type": "invests_in", "weight": 0.75}
+    ]
+  },
+  {
+    "id": "brand_xiaomi", "type": "brand", "name": "Xiaomi",
+    "attributes": {"market_share": 14, "brand_heat": 65, "tech_leadership": 60, "focus": "value_for_money", "country": "CN"},
+    "relations": [
+      {"target_id": "supplier_qualcomm", "relation_type": "uses_supplier", "weight": 0.85},
+      {"target_id": "supplier_mediatek", "relation_type": "uses_supplier", "weight": 0.6},
+      {"target_id": "brand_oppo", "relation_type": "competes_with", "weight": 0.8},
+      {"target_id": "brand_huawei", "relation_type": "competes_with", "weight": 0.6}
+    ]
+  },
+  {
+    "id": "brand_oppo", "type": "brand", "name": "OPPO",
+    "attributes": {"market_share": 9, "brand_heat": 60, "tech_leadership": 55, "focus": "camera_and_design", "country": "CN"},
+    "relations": [
+      {"target_id": "supplier_qualcomm", "relation_type": "uses_supplier", "weight": 0.7},
+      {"target_id": "brand_vivo", "relation_type": "competes_with", "weight": 0.85},
+      {"target_id": "brand_xiaomi", "relation_type": "competes_with", "weight": 0.8}
+    ]
+  },
+  {
+    "id": "brand_vivo", "type": "brand", "name": "vivo",
+    "attributes": {"market_share": 8, "brand_heat": 58, "tech_leadership": 52, "focus": "camera_and_audio", "country": "CN"},
+    "relations": [
+      {"target_id": "supplier_mediatek", "relation_type": "uses_supplier", "weight": 0.75},
+      {"target_id": "brand_oppo", "relation_type": "competes_with", "weight": 0.85}
+    ]
+  },
+  {
+    "id": "brand_honor", "type": "brand", "name": "Honor",
+    "attributes": {"market_share": 6, "brand_heat": 55, "tech_leadership": 50, "focus": "balanced", "country": "CN"},
+    "relations": [
+      {"target_id": "brand_huawei", "relation_type": "spun_off_from", "weight": 0.5},
+      {"target_id": "supplier_qualcomm", "relation_type": "uses_supplier", "weight": 0.8}
+    ]
+  },
+  {
+    "id": "brand_google", "type": "brand", "name": "Google Pixel",
+    "attributes": {"market_share": 3, "brand_heat": 60, "tech_leadership": 75, "focus": "ai_and_camera", "country": "US"},
+    "relations": [
+      {"target_id": "tech_ai_chip", "relation_type": "invests_in", "weight": 0.9},
+      {"target_id": "brand_apple", "relation_type": "competes_with", "weight": 0.5}
+    ]
+  }
+]

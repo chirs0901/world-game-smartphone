@@ -1,0 +1,30 @@
+[
+  {
+    "id": "person_tim_cook", "type": "person", "name": "蒂姆·库克",
+    "attributes": {"role": "CEO", "company": "brand_apple", "influence": 0.95},
+    "relations": [
+      {"target_id": "brand_apple", "relation_type": "leads", "weight": 1.0}
+    ]
+  },
+  {
+    "id": "person_ren_zhengfei", "type": "person", "name": "任正非",
+    "attributes": {"role": "创始人", "company": "brand_huawei", "influence": 0.9},
+    "relations": [
+      {"target_id": "brand_huawei", "relation_type": "founded", "weight": 1.0}
+    ]
+  },
+  {
+    "id": "person_lei_jun", "type": "person", "name": "雷军",
+    "attributes": {"role": "CEO", "company": "brand_xiaomi", "influence": 0.85},
+    "relations": [
+      {"target_id": "brand_xiaomi", "relation_type": "leads", "weight": 1.0}
+    ]
+  },
+  {
+    "id": "person_jensen_huang", "type": "person", "name": "黄仁勋",
+    "attributes": {"role": "CEO", "company": "NVIDIA", "influence": 0.9},
+    "relations": [
+      {"target_id": "tech_ai_chip", "relation_type": "influences", "weight": 0.8}
+    ]
+  }
+]

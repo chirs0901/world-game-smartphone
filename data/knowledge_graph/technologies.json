@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tech_5g", "type": "technology", "name": "5G",
+    "attributes": {"maturity": 0.7, "impact_weight": 0.8, "category": "communication"},
+    "relations": [
+      {"target_id": "supplier_qualcomm", "relation_type": "developed_by", "weight": 0.8},
+      {"target_id": "tech_satellite", "relation_type": "enables", "weight": 0.4}
+    ]
+  },
+  {
+    "id": "tech_foldable", "type": "technology", "name": "折叠屏",
+    "attributes": {"maturity": 0.3, "impact_weight": 0.9, "category": "display"},
+    "relations": [
+      {"target_id": "supplier_samsung_display", "relation_type": "developed_by", "weight": 0.85},
+      {"target_id": "brand_samsung", "relation_type": "pioneered_by", "weight": 0.8},
+      {"target_id": "brand_huawei", "relation_type": "adopted_by", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "tech_ai_chip", "type": "technology", "name": "AI 芯片",
+    "attributes": {"maturity": 0.4, "impact_weight": 0.85, "category": "computing"},
+    "relations": [
+      {"target_id": "brand_apple", "relation_type": "pioneered_by", "weight": 0.8},
+      {"target_id": "brand_google", "relation_type": "adopted_by", "weight": 0.85},
+      {"target_id": "tech_5g", "relation_type": "synergizes_with", "weight": 0.5}
+    ]
+  },
+  {
+    "id": "tech_satellite", "type": "technology", "name": "卫星通信",
+    "attributes": {"maturity": 0.2, "impact_weight": 0.5, "category": "communication"},
+    "relations": [
+      {"target_id": "brand_huawei", "relation_type": "pioneered_by", "weight": 0.8},
+      {"target_id": "brand_apple", "relation_type": "adopted_by", "weight": 0.6},
+      {"target_id": "tech_5g", "relation_type": "extends", "weight": 0.4}
+    ]
+  },
+  {
+    "id": "tech_periscope", "type": "technology", "name": "潜望长焦",
+    "attributes": {"maturity": 0.5, "impact_weight": 0.6, "category": "camera"},
+    "relations": [
+      {"target_id": "supplier_sony", "relation_type": "depends_on", "weight": 0.7},
+      {"target_id": "brand_huawei", "relation_type": "pioneered_by", "weight": 0.75},
+      {"target_id": "brand_samsung", "relation_type": "adopted_by", "weight": 0.65}
+    ]
+  },
+  {
+    "id": "tech_ltpo", "type": "technology", "name": "LTPO 屏幕",
+    "attributes": {"maturity": 0.6, "impact_weight": 0.5, "category": "display"},
+    "relations": [
+      {"target_id": "supplier_samsung_display", "relation_type": "developed_by", "weight": 0.8},
+      {"target_id": "supplier_boe", "relation_type": "manufactured_by", "weight": 0.5},
+      {"target_id": "brand_apple", "relation_type": "adopted_by", "weight": 0.85}
+    ]
+  },
+  {
+    "id": "tech_fast_charge", "type": "technology", "name": "百瓦快充",
+    "attributes": {"maturity": 0.7, "impact_weight": 0.4, "category": "battery"},
+    "relations": [
+      {"target_id": "supplier_atl", "relation_type": "depends_on", "weight": 0.7},
+      {"target_id": "brand_xiaomi", "relation_type": "pioneered_by", "weight": 0.75},
+      {"target_id": "brand_oppo", "relation_type": "adopted_by", "weight": 0.7}
+    ]
+  },
+  {
+    "id": "tech_under_display_camera", "type": "technology", "name": "屏下摄像头",
+    "attributes": {"maturity": 0.3, "impact_weight": 0.6, "category": "display"},
+    "relations": [
+      {"target_id": "supplier_boe", "relation_type": "developed_by", "weight": 0.6},
+      {"target_id": "tech_ltpo", "relation_type": "builds_on", "weight": 0.5}
+    ]
+  }
+]

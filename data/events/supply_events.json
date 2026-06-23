@@ -1,0 +1,133 @@
+[
+  {
+    "id": "supply_tsmc_priority",
+    "title": "台积电产能优先级调整",
+    "description": "台积电将先进制程产能优先分配给大客户，中小厂商面临芯片短缺。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["与台积电签订长期协议", "转向联发科方案", "增加芯片库存"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_panel_oversupply",
+    "title": "面板行业产能过剩",
+    "description": "OLED面板产能大幅增加，面板价格下跌15-20%，有利于手机厂商降本。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "profit", "direction": "up", "magnitude": "small", "confidence": 0.7},
+      {"metric": "cash_reserve", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["锁定低价面板供应", "升级到更高端面板", "增加产品线覆盖"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_memory_shortage",
+    "title": "存储芯片供应紧张",
+    "description": "DRAM和NAND闪存价格暴涨30%，手机BOM成本显著上升。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "profit", "direction": "down", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["提前采购存储芯片", "调整产品配置", "与存储厂商签长约"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_factory_fire",
+    "title": "供应商工厂火灾",
+    "description": "关键零部件供应商工厂发生火灾，预计影响2-3个季度的供货。",
+    "category": "supply_chain",
+    "severity": "critical",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "large", "confidence": 0.9},
+      {"metric": "sales_volume", "direction": "down", "magnitude": "medium", "confidence": 0.7}
+    ],
+    "response_options": ["紧急启动备选供应商", "调整产品发布时间", "增加安全库存"],
+    "chain_effects": ["产品线延期", "客户流失"],
+    "duration_turns": 3
+  },
+  {
+    "id": "supply_logistics_crisis",
+    "title": "全球物流危机",
+    "description": "海运和空运成本飙升，国际物流时效延长50%，影响海外市场供应。",
+    "category": "supply_chain",
+    "severity": "medium",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["增加本地化生产", "提高物流预算", "聚焦国内市场"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_rare_earth",
+    "title": "稀土出口管制",
+    "description": "主要稀土出口国实施出口配额，影响电子元器件生产。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.7},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "medium", "confidence": 0.6}
+    ],
+    "response_options": ["寻找替代材料", "增加原材料库存", "投资稀土回收"],
+    "duration_turns": 3
+  },
+  {
+    "id": "supply_cis_upgrade",
+    "title": "图像传感器代际升级",
+    "description": "新一代CIS传感器性能大幅提升，但初期产能有限，需要提前锁定供应。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "tech_leadership", "direction": "up", "magnitude": "small", "confidence": 0.6}
+    ],
+    "response_options": ["首批锁定CIS产能", "联合定制传感器", "等待产能释放"],
+    "duration_turns": 1
+  },
+  {
+    "id": "supply_assembly_quality",
+    "title": "代工厂品质事故",
+    "description": "主要代工厂出现批量品质问题，部分产品需要召回。",
+    "category": "supply_chain",
+    "severity": "critical",
+    "impacts": [
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "large", "confidence": 0.9},
+      {"metric": "cash_reserve", "direction": "down", "magnitude": "large", "confidence": 0.8},
+      {"metric": "brand_heat", "direction": "down", "magnitude": "medium", "confidence": 0.7}
+    ],
+    "response_options": ["紧急召回并赔偿", "更换代工厂", "加强品控体系"],
+    "chain_effects": ["品牌声誉受损", "销量下滑"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_battery_safety",
+    "title": "电池安全隐患曝光",
+    "description": "某电池供应商产品出现安全隐患，行业紧急排查。",
+    "category": "supply_chain",
+    "severity": "high",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "down", "magnitude": "medium", "confidence": 0.8},
+      {"metric": "customer_satisfaction", "direction": "down", "magnitude": "small", "confidence": 0.5}
+    ],
+    "response_options": ["全面更换电池供应商", "加强安全检测", "公开安全承诺"],
+    "duration_turns": 2
+  },
+  {
+    "id": "supply_dual_sourcing",
+    "title": "双源供应策略成效",
+    "description": "推行双源供应策略的品牌供应链韧性显著提升，行业开始效仿。",
+    "category": "supply_chain",
+    "severity": "low",
+    "impacts": [
+      {"metric": "supply_stability", "direction": "up", "magnitude": "small", "confidence": 0.7}
+    ],
+    "response_options": ["推进双源供应", "建立供应联盟", "保持现有策略"],
+    "duration_turns": 1
+  }
+]
