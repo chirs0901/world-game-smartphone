@@ -2,16 +2,21 @@
 
 Uses opencli CLI to search Xiaohongshu for brand-related posts.
 Caches results for 2 hours. Falls back to cached data when live search is unavailable.
+Cover images are fetched from XHS note pages (opencli search doesn't return images).
 """
 
 import hashlib
 import json
 import os
+import re
 import subprocess
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Optional
 from urllib.parse import quote
+
+import httpx
 
 from src.utils.config import load_yaml
 from src.utils.logging import logger
@@ -92,6 +97,94 @@ class SocialService:
         except Exception as e:
             logger.warning("Failed to save social cache", error=str(e))
 
+    def _fetch_note_cover(self, post_url: str) -> tuple[str, bool]:
+        """Fetch a XHS note page and extract the cover image URL.
+
+        XHS note pages contain __INITIAL_STATE__ with full note data
+        including imageList (cover images) and video info.
+
+        Returns:
+            (cover_url, is_video)
+        """
+        try:
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Referer": "https://www.xiaohongshu.com/",
+            }
+            resp = httpx.get(post_url, headers=headers, follow_redirects=True, timeout=12.0)
+            html = resp.text
+
+            # Parse __INITIAL_STATE__
+            state_match = re.search(
+                r"window\.__INITIAL_STATE__\s*=\s*(\{.+?\})\s*</script>",
+                html,
+                re.DOTALL,
+            )
+            if not state_match:
+                return ("", False)
+
+            raw = state_match.group(1).replace("undefined", "null")
+            state = json.loads(raw)
+            note_map = state.get("note", {}).get("noteDetailMap", {})
+
+            for _nid, ndata in note_map.items():
+                note_info = ndata.get("note", {})
+                is_video = bool(note_info.get("video"))
+                img_list = note_info.get("imageList", [])
+                if img_list and isinstance(img_list, list):
+                    first_img = img_list[0]
+                    if isinstance(first_img, dict):
+                        cover_url = first_img.get("urlDefault", first_img.get("url", ""))
+                        if cover_url:
+                            # Upgrade http to https for security
+                            if cover_url.startswith("http://"):
+                                cover_url = "https://" + cover_url[7:]
+                            return (cover_url, is_video)
+
+            return ("", False)
+
+        except Exception as e:
+            logger.debug("Note cover fetch failed", url=post_url[:60], error=str(e)[:80])
+            return ("", False)
+
+    def _fetch_covers_batch(self, posts: list[dict], max_count: int = 10) -> None:
+        """Fetch cover images for top posts in parallel.
+
+        Modifies posts in-place by setting 'cover' and 'type' fields.
+        Only fetches covers for posts that don't already have one.
+        """
+        # Select posts that need cover fetching (top N by likes)
+        candidates = []
+        for p in posts[:max_count]:
+            if not p.get("cover"):
+                url = p.get("url", "")
+                if url and "xiaohongshu.com" in url:
+                    candidates.append(p)
+
+        if not candidates:
+            return
+
+        logger.info("Fetching XHS note covers", count=len(candidates))
+
+        def _worker(post: dict) -> tuple[dict, str, bool]:
+            cover_url, is_video = self._fetch_note_cover(post["url"])
+            return (post, cover_url, is_video)
+
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = {executor.submit(_worker, p): p for p in candidates}
+            for future in as_completed(futures, timeout=30):
+                try:
+                    post, cover_url, is_video = future.result(timeout=15)
+                    if cover_url:
+                        post["cover"] = cover_url
+                        if is_video:
+                            post["type"] = "video"
+                        else:
+                            if not post.get("type"):
+                                post["type"] = "note"
+                except Exception:
+                    pass  # Leave cover empty
+
     def search_xhs_posts(
         self, brand_id: str, limit: int = 20, force_refresh: bool = False
     ) -> dict:
@@ -170,7 +263,7 @@ class SocialService:
             error = str(e)[:200]
             logger.warning("XHS search error", brand=brand_id, error=error)
 
-        # Sort by likes descending, take top N
+        # Normalize fields and sort by likes descending
         if posts:
             for i, p in enumerate(posts):
                 # Ensure unique id
@@ -178,29 +271,40 @@ class SocialService:
                     p["id"] = hashlib.md5(
                         (p.get("title", "") + p.get("url", "") + str(i)).encode()
                     ).hexdigest()[:12]
-                # Normalize likes field
+                # Normalize likes field (opencli returns string likes like "5.7万")
                 if "likes" not in p and "like_count" in p:
                     p["likes"] = p["like_count"]
                 if "likes" not in p:
                     p["likes"] = 0
-                # Normalize cover image - use proxy URL
-                if "cover" not in p and "images" in p:
-                    imgs = p["images"]
-                    p["cover"] = imgs[0] if isinstance(imgs, list) and imgs else ""
+                # Parse string likes like "5.7万" into numeric
+                if isinstance(p["likes"], str):
+                    p["likes"] = self._parse_likes(p["likes"])
+                # Ensure cover field exists
                 if "cover" not in p:
-                    p["cover"] = ""
-                # Convert cover to proxy URL if it's an external URL
-                if p["cover"] and p["cover"].startswith("http"):
-                    p["cover_proxy"] = f"/api/social/image-proxy?url={quote(p['cover'], safe='')}"
-                else:
-                    p["cover_proxy"] = p["cover"]
-                # Detect if it's a video (no cover + has video flag)
-                if not p["cover"] and p.get("type") == "video":
-                    p["cover_proxy"] = ""  # Will show placeholder
-                    p["type"] = "video"
+                    # Try alternative field names from opencli
+                    for alt in ("image", "thumb", "cover_url", "cover_image"):
+                        if alt in p:
+                            p["cover"] = p[alt]
+                            break
+                    else:
+                        p["cover"] = ""
 
+            # Sort by likes (highest first) then take top N
             posts.sort(key=lambda p: p.get("likes", 0), reverse=True)
             posts = posts[:limit]
+
+            # Fetch cover images for top posts (opencli search doesn't return covers)
+            self._fetch_covers_batch(posts, max_count=10)
+
+            # Generate proxy URLs for covers
+            for p in posts:
+                if p.get("cover") and p["cover"].startswith("http"):
+                    p["cover_proxy"] = f"/api/social/image-proxy?url={quote(p['cover'], safe='')}"
+                else:
+                    p["cover_proxy"] = ""
+                # Determine type if not already set by cover fetcher
+                if not p.get("type"):
+                    p["type"] = "note"
 
         # Build result
         cached_at = time.time()
@@ -227,6 +331,19 @@ class SocialService:
                 return stale
 
         return result_data
+
+    @staticmethod
+    def _parse_likes(raw: str) -> int:
+        """Parse XHS likes string like '952', '5.7万', '1.2万' into int."""
+        s = raw.strip()
+        try:
+            if '万' in s:
+                return int(float(s.replace('万', '')) * 10000)
+            if '亿' in s:
+                return int(float(s.replace('亿', '')) * 100000000)
+            return int(s.replace(',', '').replace('+', ''))
+        except (ValueError, AttributeError):
+            return 0
 
     def _load_cache_stale(self, brand_id: str) -> Optional[dict]:
         """Load cache regardless of age (stale fallback)."""
