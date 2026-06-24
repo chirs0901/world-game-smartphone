@@ -135,6 +135,46 @@ npm run dev
 
 ---
 
+## ☁️ 部署到 Vercel
+
+### 方式一：网页端导入（推荐）
+
+1. 打开 [vercel.com/import](https://vercel.com/import)
+2. 选择你的 GitHub 仓库
+3. Root Directory 设为 `frontend`
+4. 点击 Deploy → 获得 `https://xxx.vercel.app` 公开链接
+
+### 方式二：CLI 部署
+
+```bash
+# 1. 安装 Vercel CLI
+npm install -g vercel
+
+# 2. 登录（浏览器授权）
+vercel login
+
+# 3. 进入前端目录部署
+cd frontend
+vercel --prod --yes
+```
+
+> ⚠️ **使用代理网络的用户**：如果 `vercel login` 报 TLS 连接错误，
+> 需要设置代理环境变量让 Node.js 走代理：
+>
+> ```bash
+> export HTTPS_PROXY=http://127.0.0.1:7897  # 替换为你的代理地址
+> export HTTP_PROXY=http://127.0.0.1:7897
+> vercel login
+> ```
+
+部署完成后，在 Vercel 项目设置中配置环境变量：
+
+| 变量 | 值 | 说明 |
+|------|-----|------|
+| `NEXT_PUBLIC_API_URL` | `https://your-api-domain.com/api` | 后端 API 地址 |
+
+---
+
 ## 📁 项目结构
 
 ```
