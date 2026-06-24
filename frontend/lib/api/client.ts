@@ -1,6 +1,12 @@
-/** API client for World Game backend. */
+/** API client for World Game backend.
+ *
+ * In development: connects to localhost:8000
+ * In production (Vercel): uses /api proxy or NEXT_PUBLIC_API_URL env var
+ */
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
+const API_BASE = typeof window !== "undefined"
+  ? (process.env.NEXT_PUBLIC_API_URL || "/api")  // Client-side: use env or relative path
+  : (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api");  // Server-side: always use full URL
 
 async function request<T>(
   path: string,

@@ -30,6 +30,11 @@ data/social_cache/
 *.db-journal
 *.db-wal
 
+# Vercel temp
+.vercel-tmp/*.log
+.vercel-tmp/*.pid
+.vercel/
+
 # OS
 .DS_Store
 Thumbs.db
