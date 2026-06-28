@@ -1,0 +1,240 @@
+# ============================================================
+# System Rules — 连接 Technology Node、Consumer、Supply Chain 的桥梁
+#
+# 规则 = 条件（condition）+ 效应（effect）。当条件满足时，效应自动执行。
+# Rule 三种类型：
+#   tech_to_consumer:   Technology Node 激活 → Consumer Preference 偏移
+#   supply_to_market:   Supply Chain 状态变化 → Market 效应
+#   ecosystem_to_brand: Brand Ecosystem 指标 → Brand 状态变化
+# ============================================================
+
+rules:
+  # ──────────────────────────────────────────────────────
+  # 类型 1: Technology → Consumer Preference
+  # ──────────────────────────────────────────────────────
+
+  # 硅碳负极电池成熟 → 全民偏好长续航
+  - id: rule_battery_innovation_reshapes_preference
+    type: tech_to_consumer
+    description: "电池技术突破让消费者整体对续航的期待提升"
+    condition:
+      technology: tech_silicon_anode_mature
+      state: activated
+    effect:
+      - target: "segment_all.preferences.long_battery"
+        operation: add
+        value: 8
+      - target: "segment_business_users.preferences.long_battery"
+        operation: add
+        value: 10
+      - target: "segment_young_gamers.preferences.battery_charge_speed"
+        operation: add
+        value: 6
+
+  # 端侧 AI 芯片商用 → 科技爱好者追捧
+  - id: rule_ai_npu_reshapes_enthusiast
+    type: tech_to_consumer
+    description: "独立NPU芯片让科技爱好者对AI能力的期待大幅提升"
+    condition:
+      technology: tech_ai_npu_dedicated
+      state: activated
+    effect:
+      - target: "segment_tech_enthusiasts.preferences.ai_capability"
+        operation: add
+        value: 20
+      - target: "segment_young_gamers.preferences.ai_assistant"
+        operation: add
+        value: 12
+      - target: "segment_business_users.preferences.ai_productivity"
+        operation: add
+        value: 15
+      - target: "segment_mass_market.preferences.ai_assistant"
+        operation: add
+        value: 8
+
+  # LTPO OLED 成熟 → 高刷普及
+  - id: rule_ltpo_oled_boosts_refresh_preference
+    type: tech_to_consumer
+    description: "LTPO技术让高刷屏不再牺牲续航，推动高刷成为标配"
+    condition:
+      technology: tech_ltpo_oled_v3
+      state: activated
+    effect:
+      - target: "segment_young_gamers.preferences.display_refresh"
+        operation: add
+        value: 10
+      - target: "segment_mass_market.preferences.display_refresh"
+        operation: add
+        value: 8
+
+  # 潜望式长焦成熟 → 摄影爱好者偏好长焦
+  - id: rule_periscope_boosts_zoom_preference
+    type: tech_to_consumer
+    description: "潜望式长焦让手机摄影能力接近专业相机，摄影爱好者高度重视"
+    condition:
+      technology: tech_periscope_5x_mature
+      state: activated
+    effect:
+      - target: "segment_photo_creators.preferences.camera_zoom"
+        operation: add
+        value: 18
+      - target: "segment_tech_enthusiasts.preferences.camera_zoom"
+        operation: add
+        value: 12
+
+  # ──────────────────────────────────────────────────────
+  # 类型 2: Supply Chain → Market Effect
+  # ──────────────────────────────────────────────────────
+
+  # TSMC 产能紧张 → 成本传导
+  - id: rule_tsmc_capacity_crunch_cascade
+    type: supply_to_market
+    description: "TSMC先进制程产能利用率>95%时，SoC成本全面上升"
+    condition:
+      supplier: supplier_tsmc
+      metric: "utilization"
+      resource: "3nm_wafer_capacity"
+      operator: "gte"
+      threshold: 0.95
+    effect:
+      - target: "brands_using_tsmc_3nm.soc_cost"
+        operation: multiply
+        value: 1.15                     # 加价15%
+      - target: "brands_using_tsmc_4nm.soc_cost"
+        operation: multiply
+        value: 1.08                     # 4nm也被波及，加价8%
+      - target: "brands_not_using_tsmc.competitive_advantage_index"
+        operation: add
+        value: 6
+
+  # OLED 面板供应过剩 → 中端机受益
+  - id: rule_oled_oversupply_benefits_midrange
+    type: supply_to_market
+    description: "BOE等国产面板产能过剩时，中端机型的面板成本下降"
+    condition:
+      supplier: supplier_boe
+      metric: "utilization"
+      resource: "oled_panel"
+      operator: "lte"
+      threshold: 0.65
+    effect:
+      - target: "mid_range_phones.panel_cost"
+        operation: multiply
+        value: 0.88
+      - target: "mid_range_phones.price_competitiveness"
+        operation: add
+        value: 8
+
+  # SMIC 产能突破 → 华为制约缓解
+  - id: rule_smic_breakthrough_helps_huawei
+    type: supply_to_market
+    description: "SMIC产能利用率提升时，华为供应稳定性改善"
+    condition:
+      supplier: supplier_smic
+      metric: "utilization"
+      resource: "advanced_wafer_domestic"
+      operator: "gte"
+      threshold: 0.85
+    effect:
+      - target: "brand_huawei.supply_stability"
+        operation: add
+        value: 10
+      - target: "brand_huawei.market_share"
+        operation: add
+        value: 1.5
+
+  # ──────────────────────────────────────────────────────
+  # 类型 3: Ecosystem → Brand
+  # ──────────────────────────────────────────────────────
+
+  # Apple 生态强度 > 80 → 用户粘性锁定
+  - id: rule_ecosystem_network_effect_apple
+    type: ecosystem_to_brand
+    description: "Apple生态越强，用户转换成本越高，形成正反馈"
+    condition:
+      brand: brand_apple
+      metric: "ecosystem_strength"
+      operator: "gte"
+      threshold: 80
+    effect:
+      - target: "brand_apple.customer_retention_rate"
+        operation: set
+        value: 0.95
+      - target: "competitor_android_brands.switching_cost_index"
+        operation: add
+        value: 8
+
+  # Xiaomi IoT 生态 > 50 → 品牌热度提升
+  - id: rule_iot_ecosystem_boosts_xiaomi_heat
+    type: ecosystem_to_brand
+    description: "Xiaomi AIoT生态设备越多，手机品牌热度越高"
+    condition:
+      brand: brand_xiaomi
+      metric: "iot_ecosystem_devices"
+      operator: "gte"
+      threshold: 50
+    effect:
+      - target: "brand_xiaomi.brand_heat"
+        operation: add
+        value: 5
+      - target: "brand_xiaomi.customer_retention_rate"
+        operation: add
+        value: 0.03
+
+  # Huawei 自主可控 > 70 → 国内品牌热度飙升
+  - id: rule_self_sufficiency_boosts_huawei_home
+    type: ecosystem_to_brand
+    description: "华为自研能力越强，国内市场品牌信仰越深"
+    condition:
+      brand: brand_huawei
+      metric: "self_sufficiency_index"
+      operator: "gte"
+      threshold: 70
+    effect:
+      - target: "brand_huawei.brand_heat"
+        operation: add
+        value: 8
+      - target: "brand_huawei.customer_satisfaction"
+        operation: add
+        value: 5
+      - target: "brand_huawei.morale"
+        operation: add
+        value: 6
+
+  # ──────────────────────────────────────────────────────
+  # 类型 4: Consumer Trend → Market Structure（新增）
+  # ──────────────────────────────────────────────────────
+
+  # AI 偏好超过阈值 → 没有 AI 能力的品牌掉队
+  - id: rule_ai_preference_punishes_laggards
+    type: consumer_to_brand
+    description: "当全民AI偏好超过阈值时，AI能力弱的品牌市场份额流失"
+    condition:
+      segment: segment_mass_market
+      metric: "preferences.ai_assistant"
+      operator: "gte"
+      threshold: 0.4
+    effect:
+      - target: "brands_with_ai_index_below_30.market_share"
+        operation: add
+        value: -3
+      - target: "brands_with_ai_index_above_70.market_share"
+        operation: add
+        value: 2
+
+  # 折叠屏偏好上升 → 有折叠产品的品牌受益
+  - id: rule_foldable_preference_rewards_early_movers
+    type: consumer_to_brand
+    description: "折叠屏偏好持续上升，有折叠产品的品牌品牌热度提升"
+    condition:
+      segment: segment_tech_enthusiasts
+      metric: "preferences.foldable_display"
+      operator: "gte"
+      threshold: 0.5
+    effect:
+      - target: "brand_samsung.brand_heat"
+        operation: add
+        value: 6
+      - target: "brands_without_foldable.brand_heat"
+        operation: add
+        value: -3

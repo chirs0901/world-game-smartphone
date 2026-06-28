@@ -1,0 +1,142 @@
+# ============================================================
+# Consumer Segment Schema — 消费者分层定义
+#
+# 消费者不是统一实体，而是有不同偏好权重的分层群体。
+# preferences 是购买决策中各因素的权重（0-1，归一化）。
+# trend_vectors 定义每个偏好的年度漂移方向（每 tick 应用 1/4）。
+# size_pct 是各分层占整体市场的百分比。
+# ============================================================
+
+consumer_segments:
+  # ──────────────────────────────────────────────────
+  # 年轻游戏玩家 (18%)
+  # ──────────────────────────────────────────────────
+  - id: segment_young_gamers
+    name: "年轻游戏玩家"
+    age_range: [15, 30]
+    size_pct: 18.0
+    description: "追求极致游戏体验、144Hz高刷、液冷散热的年轻人。"
+
+    preferences:
+      gaming_performance: 0.90
+      display_refresh: 0.85
+      cooling_quality: 0.70
+      price_sensitivity: 0.60
+      battery_charge_speed: 0.55
+      camera_quality: 0.30
+      build_quality: 0.25
+      brand_loyalty: 0.20
+      ai_assistant: 0.15
+      foldable_display: 0.10
+      camera_zoom: 0.05
+      long_battery: 0.40
+
+    trend_vectors:                      # 年度漂移（每 tick = 1/4年）
+      ai_assistant: +0.5
+      foldable_display: +0.3
+      camera_zoom: +0.1
+      gaming_performance: +0.1          # 性能要求温和增长
+
+  # ──────────────────────────────────────────────────
+  # 商务用户 (22%)
+  # ──────────────────────────────────────────────────
+  - id: segment_business_users
+    name: "商务用户"
+    age_range: [25, 55]
+    size_pct: 22.0
+    description: "追求长续航、品质感、品牌信赖的职场人群。"
+
+    preferences:
+      long_battery: 0.90
+      build_quality: 0.80
+      brand_loyalty: 0.70
+      security_features: 0.65
+      camera_quality: 0.40
+      ai_productivity: 0.35
+      display_refresh: 0.20
+      gaming_performance: 0.10
+      price_sensitivity: 0.45
+      foldable_display: 0.25
+
+    trend_vectors:
+      ai_productivity: +0.6
+      satellite_comms: +0.4
+      security_features: +0.3
+      foldable_display: +0.2
+      long_battery: +0.2
+
+  # ──────────────────────────────────────────────────
+  # 科技爱好者 (10%)
+  # ──────────────────────────────────────────────────
+  - id: segment_tech_enthusiasts
+    name: "科技爱好者"
+    age_range: [18, 40]
+    size_pct: 10.0
+    description: "追逐首发、追捧技术参数、愿意为最新技术支付溢价的早期采用者。"
+
+    preferences:
+      spec_leadership: 0.95
+      ai_capability: 0.85
+      first_adopter: 0.90
+      camera_zoom: 0.60
+      gaming_performance: 0.50
+      price_sensitivity: 0.30
+      brand_loyalty: 0.15
+      build_quality: 0.40
+      foldable_display: 0.55
+
+    trend_vectors:
+      ai_capability: +0.7
+      self_dev_chip: +0.5
+      neuromorphic_ai: +0.7
+      camera_zoom: +0.3
+      foldable_display: +0.4
+
+  # ──────────────────────────────────────────────────
+  # 大众用户 (35%)
+  # ──────────────────────────────────────────────────
+  - id: segment_mass_market
+    name: "大众用户"
+    age_range: [18, 65]
+    size_pct: 35.0
+    description: "最大的消费群体，关注性价比、综合体验，品牌偏好相对温和。"
+
+    preferences:
+      price_sensitivity: 0.80
+      build_quality: 0.55
+      camera_quality: 0.55
+      long_battery: 0.65
+      brand_loyalty: 0.40
+      display_refresh: 0.30
+      gaming_performance: 0.25
+      ai_assistant: 0.20
+      foldable_display: 0.05
+
+    trend_vectors:
+      ai_assistant: +0.3
+      camera_quality: +0.2
+      long_battery: +0.2
+
+  # ──────────────────────────────────────────────────
+  # 影像创作爱好者 (15%)
+  # ──────────────────────────────────────────────────
+  - id: segment_photo_creators
+    name: "影像创作爱好者"
+    age_range: [20, 45]
+    size_pct: 15.0
+    description: "社交媒体内容创作者、摄影爱好者，相机是第一购买决策因素。"
+
+    preferences:
+      camera_quality: 0.95
+      camera_zoom: 0.85
+      ai_photo_editing: 0.70
+      build_quality: 0.55
+      price_sensitivity: 0.45
+      brand_loyalty: 0.50
+      gaming_performance: 0.15
+      long_battery: 0.40
+
+    trend_vectors:
+      ai_photo_editing: +0.6
+      camera_zoom: +0.4
+      sensor_size: +0.5

@@ -1,0 +1,446 @@
+# ============================================================
+# Supply Chain Schema — 供应商 + 传导链路
+#
+# 供应链不是静态列表，而是有向图。
+# - suppliers：供应商也是 Agent，有自己的产能、DNA、技术依赖。
+# - links：品牌与供应商之间的资源分配关系。
+# - propagation_rules：上游扰动如何向下游传导。
+# ============================================================
+
+# ──────────────────────────────────────────────────
+# 供应商 Agent
+# ──────────────────────────────────────────────────
+suppliers:
+  - id: supplier_tsmc
+    name: "TSMC"
+    country: "台湾"
+    category: semiconductor_fab
+    description: "全球最大和最先进的纯晶圆代工厂，3nm/5nm 产能主导，核心客户包括 Apple、Qualcomm、MediaTek。"
+    dna:
+      technology_lead: 0.95
+      capacity_expand: 0.7
+      profit_margin_focus: 0.85
+      customer_diversify: 0.6
+      geopolitical_risk: 0.8               # 地缘政治风险系数高
+    resources:
+      - type: "3nm_wafer_capacity"
+        total_units: 100                    # 万片/季度
+        utilization: 0.92
+        unit_cost_usd: 18000
+      - type: "4nm_wafer_capacity"
+        total_units: 150
+        utilization: 0.85
+        unit_cost_usd: 9000
+    tech_dependency:
+      - tech_tsmc_n3e_mature
+      - tech_2nm_research
+
+  - id: supplier_samsung_display
+    name: "Samsung Display"
+    country: "韩国"
+    category: display_panel
+    description: "全球 LTPO OLED 面板最大供应商，E7 面板在亮度和功耗方面领先。"
+    dna:
+      technology_lead: 0.90
+      capacity_expand: 0.6
+      profit_margin_focus: 0.7
+      customer_diversify: 0.5              # 三星手机优先
+      geopolitical_risk: 0.4
+    resources:
+      - type: "ltpo_oled_panel"
+        total_units: 200                    # 万片/季度
+        utilization: 0.88
+        unit_cost_usd: 45
+    tech_dependency:
+      - tech_ltpo_oled_v3
+
+  - id: supplier_boe
+    name: "BOE（京东方）"
+    country: "中国"
+    category: display_panel
+    description: "中国最大显示面板制造商，Q10 面板正在缩小与三星的差距，为国产手机提供 LTPO OLED 面板。"
+    dna:
+      technology_lead: 0.72
+      capacity_expand: 0.85
+      profit_margin_focus: 0.5
+      customer_diversify: 0.9              # 广泛服务各品牌
+      geopolitical_risk: 0.2
+    resources:
+      - type: "oled_panel"
+        total_units: 180
+        utilization: 0.75
+        unit_cost_usd: 32
+    tech_dependency:
+      - tech_ltpo_oled_v3
+
+  - id: supplier_sony
+    name: "Sony Semiconductor"
+    country: "日本"
+    category: cmos_sensor
+    description: "全球最大 CMOS 图像传感器供应商，IMX989/LYT-900 为旗舰机首选。"
+    dna:
+      technology_lead: 0.92
+      capacity_expand: 0.5
+      profit_margin_focus: 0.9
+      customer_diversify: 0.7
+      geopolitical_risk: 0.3
+    resources:
+      - type: "cmos_sensor"
+        total_units: 120
+        utilization: 0.90
+        unit_cost_usd: 12
+    tech_dependency: []
+
+  - id: supplier_samsung_isocell
+    name: "Samsung ISOCELL"
+    country: "韩国"
+    category: cmos_sensor
+    description: "Samsung 的图像传感器部门，HP9 潜望式传感器性能强悍。"
+    dna:
+      technology_lead: 0.80
+      capacity_expand: 0.55
+      profit_margin_focus: 0.65
+      customer_diversify: 0.8
+      geopolitical_risk: 0.35
+    resources:
+      - type: "cmos_sensor"
+        total_units: 80
+        utilization: 0.78
+        unit_cost_usd: 10
+    tech_dependency: []
+
+  - id: supplier_atl
+    name: "ATL（新能源科技）"
+    country: "中国"
+    category: battery
+    description: "全球最大锂电池供应商之一，硅碳负极电池量产先行者。"
+    dna:
+      technology_lead: 0.75
+      capacity_expand: 0.8
+      profit_margin_focus: 0.45
+      customer_diversify: 0.95
+      geopolitical_risk: 0.15
+    resources:
+      - type: "battery_cell"
+        total_units: 250
+        utilization: 0.80
+        unit_cost_usd: 6
+    tech_dependency:
+      - tech_silicon_anode_mature
+
+  - id: supplier_samsung_sdi
+    name: "Samsung SDI"
+    country: "韩国"
+    category: battery
+    description: "三星旗下电池事业部，为 Galaxy 和部分国产品牌供应电池。"
+    dna:
+      technology_lead: 0.78
+      capacity_expand: 0.55
+      profit_margin_focus: 0.6
+      customer_diversify: 0.5
+      geopolitical_risk: 0.3
+    resources:
+      - type: "battery_cell"
+        total_units: 100
+        utilization: 0.72
+        unit_cost_usd: 7
+    tech_dependency:
+      - tech_silicon_anode_mature
+
+  - id: supplier_smic
+    name: "SMIC"
+    country: "中国"
+    category: semiconductor_fab
+    description: "中国大陆最先进的晶圆代工厂，N+2工艺是华为麒麟芯片的主要制程来源。"
+    dna:
+      technology_lead: 0.55                  # 与TSMC差距较大
+      capacity_expand: 0.90
+      profit_margin_focus: 0.4
+      customer_diversify: 0.3                # 华为占主导
+      geopolitical_risk: 0.9                 # 设备限制风险
+    resources:
+      - type: "advanced_wafer_domestic"
+        total_units: 40
+        utilization: 0.95
+        unit_cost_usd: 14000
+    tech_dependency: []
+
+# ──────────────────────────────────────────────────
+# 供应链链路（有向边）
+# ──────────────────────────────────────────────────
+links:
+  # TSMC → Apple（最大客户）
+  - id: sc_link_tsmc_apple_n3
+    from: supplier_tsmc
+    to: brand_apple
+    resource_type: "3nm_wafer_capacity"
+    tech_node: tech_tsmc_n3e_mature
+    allocation_pct: 35
+    reliability: 0.95
+    cost_per_unit: 18000
+    lead_time_quarters: 2
+
+  # TSMC → Qualcomm
+  - id: sc_link_tsmc_qualcomm_n3
+    from: supplier_tsmc
+    to: brand_qualcomm
+    resource_type: "3nm_wafer_capacity"
+    tech_node: tech_tsmc_n3e_mature
+    allocation_pct: 30
+    reliability: 0.95
+    cost_per_unit: 18000
+    lead_time_quarters: 2
+
+  # TSMC → MediaTek
+  - id: sc_link_tsmc_mediatek_n4
+    from: supplier_tsmc
+    to: brand_mediatek
+    resource_type: "4nm_wafer_capacity"
+    tech_node: tech_tsmc_n3e_mature
+    allocation_pct: 20
+    reliability: 0.90
+    cost_per_unit: 9000
+    lead_time_quarters: 2
+
+  # TSMC → Xiaomi（4nm）
+  - id: sc_link_tsmc_xiaomi_n4
+    from: supplier_tsmc
+    to: brand_xiaomi
+    resource_type: "4nm_wafer_capacity"
+    allocation_pct: 8
+    reliability: 0.88
+    cost_per_unit: 9000
+    lead_time_quarters: 2
+
+  # TSMC → OPPO
+  - id: sc_link_tsmc_oppo_n4
+    from: supplier_tsmc
+    to: brand_oppo
+    resource_type: "4nm_wafer_capacity"
+    allocation_pct: 10
+    reliability: 0.88
+    cost_per_unit: 9000
+    lead_time_quarters: 2
+
+  # TSMC → vivo
+  - id: sc_link_tsmc_vivo_n4
+    from: supplier_tsmc
+    to: brand_vivo
+    resource_type: "4nm_wafer_capacity"
+    allocation_pct: 8
+    reliability: 0.88
+    cost_per_unit: 9000
+    lead_time_quarters: 2
+
+  # TSMC → Honor
+  - id: sc_link_tsmc_honor_n4
+    from: supplier_tsmc
+    to: brand_honor
+    resource_type: "4nm_wafer_capacity"
+    allocation_pct: 5
+    reliability: 0.85
+    cost_per_unit: 9000
+    lead_time_quarters: 2
+
+  # TSMC → Nothing（最小客户）
+  - id: sc_link_tsmc_nothing_n4
+    from: supplier_tsmc
+    to: brand_nothing
+    resource_type: "4nm_wafer_capacity"
+    allocation_pct: 2
+    reliability: 0.80
+    cost_per_unit: 9000
+    lead_time_quarters: 3
+
+  # SMIC → Huawei（国内制程）
+  - id: sc_link_smic_huawei_domestic
+    from: supplier_smic
+    to: brand_huawei
+    resource_type: "advanced_wafer_domestic"
+    allocation_pct: 60
+    reliability: 0.70                              # 良率较低
+    cost_per_unit: 14000
+    lead_time_quarters: 3
+
+  # Samsung Display → Apple
+  - id: sc_link_samsung_display_apple_oled
+    from: supplier_samsung_display
+    to: brand_apple
+    resource_type: "ltpo_oled_panel"
+    tech_node: tech_ltpo_oled_v3
+    allocation_pct: 40
+    reliability: 0.95
+    cost_per_unit: 45
+    lead_time_quarters: 1
+
+  # Samsung Display → Samsung（自供）
+  - id: sc_link_samsung_display_samsung_oled
+    from: supplier_samsung_display
+    to: brand_samsung
+    resource_type: "ltpo_oled_panel"
+    tech_node: tech_ltpo_oled_v3
+    allocation_pct: 25
+    reliability: 0.98                              # 自供优先
+    cost_per_unit: 35                              # 内部价
+    lead_time_quarters: 1
+
+  # BOE → Xiaomi
+  - id: sc_link_boe_xiaomi_oled
+    from: supplier_boe
+    to: brand_xiaomi
+    resource_type: "oled_panel"
+    allocation_pct: 30
+    reliability: 0.85
+    cost_per_unit: 32
+    lead_time_quarters: 1
+
+  # BOE → Huawei
+  - id: sc_link_boe_huawei_oled
+    from: supplier_boe
+    to: brand_huawei
+    resource_type: "oled_panel"
+    allocation_pct: 35
+    reliability: 0.82
+    cost_per_unit: 32
+    lead_time_quarters: 1
+
+  # BOE → Nothing
+  - id: sc_link_boe_nothing_oled
+    from: supplier_boe
+    to: brand_nothing
+    resource_type: "oled_panel"
+    allocation_pct: 5
+    reliability: 0.78
+    cost_per_unit: 32
+    lead_time_quarters: 2
+
+  # Sony → Apple
+  - id: sc_link_sony_apple_cmos
+    from: supplier_sony
+    to: brand_apple
+    resource_type: "cmos_sensor"
+    allocation_pct: 25
+    reliability: 0.95
+    cost_per_unit: 12
+    lead_time_quarters: 1
+
+  # Sony → Huawei
+  - id: sc_link_sony_huawei_cmos
+    from: supplier_sony
+    to: brand_huawei
+    resource_type: "cmos_sensor"
+    allocation_pct: 20
+    reliability: 0.75                              # 受制裁影响
+    cost_per_unit: 15
+    lead_time_quarters: 2
+
+  # Sony → vivo（蔡司合作）
+  - id: sc_link_sony_vivo_cmos
+    from: supplier_sony
+    to: brand_vivo
+    resource_type: "cmos_sensor"
+    allocation_pct: 15
+    reliability: 0.85
+    cost_per_unit: 12
+    lead_time_quarters: 1
+
+  # Sony → OPPO
+  - id: sc_link_sony_oppo_cmos
+    from: supplier_sony
+    to: brand_oppo
+    resource_type: "cmos_sensor"
+    allocation_pct: 18
+    reliability: 0.85
+    cost_per_unit: 12
+    lead_time_quarters: 1
+
+  # ATL → Xiaomi
+  - id: sc_link_atl_xiaomi_battery
+    from: supplier_atl
+    to: brand_xiaomi
+    resource_type: "battery_cell"
+    allocation_pct: 15
+    reliability: 0.88
+    cost_per_unit: 6
+    lead_time_quarters: 1
+
+  # Samsung SDI → Samsung（自供）
+  - id: sc_link_samsung_sdi_samsung_battery
+    from: supplier_samsung_sdi
+    to: brand_samsung
+    resource_type: "battery_cell"
+    allocation_pct: 30
+    reliability: 0.95
+    cost_per_unit: 5.5
+    lead_time_quarters: 1
+
+# ──────────────────────────────────────────────────
+# 传导规则：上游扰动 → 下游效应
+# ──────────────────────────────────────────────────
+propagation_rules:
+  # TSMC 产能紧张 → 下游品牌成本上升
+  - id: prop_tsmc_capacity_crunch
+    condition:
+      supplier: supplier_tsmc
+      metric: "utilization"
+      resource: "3nm_wafer_capacity"
+      operator: "gte"
+      threshold: 0.95
+    effect:
+      - target: "all_linked_brands.soc_cost"
+        operation: multiply
+        value: 1.15                     # 加价15%
+      - target: "brands_not_on_tsmc.competitive_advantage"
+        operation: add
+        value: 5                        # 非TSMC客户获得竞争优势
+      - target: "all_linked_brands.supply_stability"
+        operation: add
+        value: -8
+
+  # 供应商突发减产（如地震、火灾）
+  - id: prop_supplier_emergency_cut
+    condition:
+      event: "capacity_reduction"
+      threshold_pct: 0.2               # 产能减少超过20%
+    effect:
+      - target: "all_linked_brands.production_delay_quarters"
+        operation: add
+        value: 1
+      - target: "competitor_brands.opportunity_market_share"
+        operation: "market_share_transfer"
+        value: 3                        # 3%份额转移给竞争对手
+      - target: "affected_links.cost_per_unit"
+        operation: multiply
+        value: 1.25                     # 现货价飙升25%
+
+  # 地缘政治：TSMC 被限制供货给某客户
+  - id: prop_geopolitical_tsmc_restriction
+    condition:
+      supplier: supplier_tsmc
+      event: "export_restriction"
+    effect:
+      - target: "affected_brand.supply_stability"
+        operation: set
+        value: 25                       # 供应稳定性骤降
+      - target: "affected_brand.production_delay_quarters"
+        operation: add
+        value: 2
+      - target: "competitor_brands.windfall_market_share"
+        operation: "market_share_transfer"
+        value: 8
+
+  # 供应过剩 → 组件降价
+  - id: prop_oversupply_discount
+    condition:
+      supplier: supplier_boe
+      metric: "utilization"
+      resource: "oled_panel"
+      operator: "lte"
+      threshold: 0.60
+    effect:
+      - target: "all_linked_brands.panel_cost"
+        operation: multiply
+        value: 0.88                     # 降价12%
+      - target: "all_linked_brands.margin_boost"
+        operation: add
+        value: 3

@@ -197,8 +197,8 @@ class GameService:
         # Generate simulated real-time transactions
         now = time.time()
         brands_pool = [
-            "Apply", "Samsun", "Huawey", "OYeah", "Viva",
-            "Xiaomee", "HonorX", "NothingX", "Googlex", "OnePlux",
+            "Apple", "Samsung", "Huawei", "OPPO", "vivo",
+            "Xiaomi", "Honor", "Nothing", "Google", "OnePlus",
         ]
         segments = [
             ("旗舰", 5000, 12000),

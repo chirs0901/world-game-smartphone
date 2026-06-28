@@ -10,7 +10,7 @@ export interface BrandColors {
 }
 
 export const BRAND_COLORS: Record<string, BrandColors> = {
-  apply: {
+  apple: {
     primary: "#0071E3",
     primaryLight: "#5E9EFF",
     primaryDark: "#004A9F",
@@ -18,7 +18,7 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#1D1D1F",
     textOnPrimary: "#FFFFFF",
   },
-  samsun: {
+  samsung: {
     primary: "#1428A0",
     primaryLight: "#3B5FE0",
     primaryDark: "#0A1A6E",
@@ -26,7 +26,7 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#0A1A6E",
     textOnPrimary: "#FFFFFF",
   },
-  huawey: {
+  huawei: {
     primary: "#CF0A2C",
     primaryLight: "#FF3B5C",
     primaryDark: "#A00820",
@@ -34,7 +34,7 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#1A1A2E",
     textOnPrimary: "#FFFFFF",
   },
-  oyeah: {
+  oppo: {
     primary: "#1EA366",
     primaryLight: "#34D399",
     primaryDark: "#065F46",
@@ -42,7 +42,7 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#064E3B",
     textOnPrimary: "#FFFFFF",
   },
-  viva: {
+  vivo: {
     primary: "#415FFF",
     primaryLight: "#6B8CFF",
     primaryDark: "#1E3A8A",
@@ -50,7 +50,7 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#1E3A8A",
     textOnPrimary: "#FFFFFF",
   },
-  xiaomee: {
+  xiaomi: {
     primary: "#FF6900",
     primaryLight: "#FF9B40",
     primaryDark: "#CC5500",
@@ -58,15 +58,15 @@ export const BRAND_COLORS: Record<string, BrandColors> = {
     sidebarBg: "#7C2D12",
     textOnPrimary: "#FFFFFF",
   },
-  honorx: {
-    primary: "#A0A4A8",
-    primaryLight: "#D1D5DB",
-    primaryDark: "#6B7280",
-    accent: "#4B5563",
-    sidebarBg: "#374151",
+  honor: {
+    primary: "#1A73E8",
+    primaryLight: "#4DA3FF",
+    primaryDark: "#0D47A1",
+    accent: "#4285F4",
+    sidebarBg: "#0D2137",
     textOnPrimary: "#FFFFFF",
   },
-  nothingx: {
+  nothing: {
     primary: "#FFD700",
     primaryLight: "#FFED4A",
     primaryDark: "#B8860B",

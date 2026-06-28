@@ -1,0 +1,182 @@
+# ============================================================
+# 初始世界状态 — 2025年 Q1
+#
+# Engine 加载此文件作为世界运行的起点。
+# 所有值基于真实市场数据（2025年初），经游戏平衡调整。
+# ============================================================
+
+tick: 0
+year: 2025
+quarter: 1
+
+# 技术节点初始激活状态
+technology_activation:
+  tech_tsmc_n3e_mature: true          # 2024年已量产
+  tech_silicon_anode_mature: true     # 2024年已多品牌搭载
+  tech_ai_npu_dedicated: false        # 尚未大规模商用
+  tech_ltpo_oled_v3: true             # 三星E7/BOE Q10 2024年已落地
+  tech_periscope_5x_mature: true      # 2024年旗舰标配
+
+# 品牌初始状态（与 company.schema.yaml initial_state 一致）
+brands:
+  apple:
+    cash_reserve: 120.0
+    brand_heat: 88.0
+    tech_leadership: 85
+    market_share: 18.0
+    supply_stability: 75.0
+    customer_satisfaction: 82.0
+    morale: 75.0
+    profit_margin: 35.0
+    ecosystem_strength: 85.0
+    customer_retention_rate: 0.88
+    quarterly_revenue: 28.0
+    quarterly_profit: 8.5
+    quarterly_shipment: 600
+
+  samsung:
+    cash_reserve: 80.0
+    brand_heat: 78.0
+    tech_leadership: 80
+    market_share: 20.0
+    supply_stability: 88.0
+    customer_satisfaction: 68.0
+    morale: 70.0
+    profit_margin: 18.0
+    ecosystem_strength: 55.0
+    customer_retention_rate: 0.72
+    quarterly_revenue: 22.0
+    quarterly_profit: 4.0
+    quarterly_shipment: 800
+
+  huawei:
+    cash_reserve: 60.0
+    brand_heat: 82.0
+    tech_leadership: 78
+    market_share: 12.0
+    supply_stability: 45.0
+    customer_satisfaction: 74.0
+    morale: 85.0
+    profit_margin: 20.0
+    ecosystem_strength: 55.0
+    customer_retention_rate: 0.68
+    quarterly_revenue: 14.0
+    quarterly_profit: 2.8
+    quarterly_shipment: 450
+
+  oppo:
+    cash_reserve: 35.0
+    brand_heat: 65.0
+    tech_leadership: 52
+    market_share: 9.0
+    supply_stability: 65.0
+    customer_satisfaction: 70.0
+    morale: 72.0
+    profit_margin: 14.0
+    ecosystem_strength: 30.0
+    customer_retention_rate: 0.58
+    quarterly_revenue: 8.5
+    quarterly_profit: 1.2
+    quarterly_shipment: 350
+
+  vivo:
+    cash_reserve: 30.0
+    brand_heat: 62.0
+    tech_leadership: 50
+    market_share: 8.0
+    supply_stability: 62.0
+    customer_satisfaction: 68.0
+    morale: 68.0
+    profit_margin: 12.5
+    ecosystem_strength: 25.0
+    customer_retention_rate: 0.54
+    quarterly_revenue: 7.2
+    quarterly_profit: 0.9
+    quarterly_shipment: 320
+
+  xiaomi:
+    cash_reserve: 40.0
+    brand_heat: 72.0
+    tech_leadership: 58
+    market_share: 14.0
+    supply_stability: 60.0
+    customer_satisfaction: 62.0
+    morale: 74.0
+    profit_margin: 5.0
+    ecosystem_strength: 62.0
+    customer_retention_rate: 0.56
+    quarterly_revenue: 10.0
+    quarterly_profit: 0.5
+    quarterly_shipment: 500
+
+  honor:
+    cash_reserve: 25.0
+    brand_heat: 58.0
+    tech_leadership: 55
+    market_share: 6.0
+    supply_stability: 55.0
+    customer_satisfaction: 64.0
+    morale: 78.0
+    profit_margin: 11.0
+    ecosystem_strength: 20.0
+    customer_retention_rate: 0.48
+    quarterly_revenue: 5.5
+    quarterly_profit: 0.6
+    quarterly_shipment: 250
+
+  nothing:
+    cash_reserve: 15.0
+    brand_heat: 52.0
+    tech_leadership: 42
+    market_share: 1.0
+    supply_stability: 42.0
+    customer_satisfaction: 72.0
+    morale: 82.0
+    profit_margin: -5.0
+    ecosystem_strength: 10.0
+    customer_retention_rate: 0.35
+    quarterly_revenue: 2.0
+    quarterly_profit: -0.3
+    quarterly_shipment: 50
+
+# 供应商初始状态
+suppliers:
+  tsmc:
+    resources:
+      3nm_wafer_capacity: { total: 100, utilization: 0.92 }
+      4nm_wafer_capacity: { total: 150, utilization: 0.85 }
+  samsung_display:
+    resources:
+      ltpo_oled_panel: { total: 200, utilization: 0.88 }
+  boe:
+    resources:
+      oled_panel: { total: 180, utilization: 0.75 }
+  sony:
+    resources:
+      cmos_sensor: { total: 120, utilization: 0.90 }
+  atl:
+    resources:
+      battery_cell: { total: 250, utilization: 0.80 }
+  samsung_sdi:
+    resources:
+      battery_cell: { total: 100, utilization: 0.72 }
+  smic:
+    resources:
+      advanced_wafer_domestic: { total: 40, utilization: 0.95 }
+
+# 全局技术基线
+global_baselines:
+  soc_performance: 100.0
+  soc_power_efficiency: 100.0
+  soc_cost_per_die: 100.0
+  battery_energy_density: 100.0
+  battery_cost_per_mah: 100.0
+  display_peak_brightness: 100.0
+  display_power_efficiency: 100.0
+  camera_zoom_capability: 100.0
+  camera_module_cost: 100.0
+  ai_on_device_capability: 100.0
+
+# 场景标识
+scenario: "base_2025"
+scenario_description: "2025年Q1基准场景，TSMC N3E和LTPO OLED已成熟，硅碳负极电池规模量产，独立AI NPU尚未商用。"

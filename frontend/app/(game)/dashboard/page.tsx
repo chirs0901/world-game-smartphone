@@ -65,7 +65,7 @@ export default function DashboardPage() {
   }, [session]);
 
   // Xiaohongshu social feed (2h auto-refresh)
-  const brandId = session?.config.company_id ?? "apply";
+  const brandId = session?.config.company_id ?? "apple";
   const {
     data: xhsData,
     isLoading: loadingXhs,

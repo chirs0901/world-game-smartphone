@@ -1,0 +1,342 @@
+# ============================================================
+# World State Snapshot Schema
+#
+# 定义 Engine 每个 tick 输出的世界状态快照结构。
+# 这是 API 和 UI 的唯一数据来源——UI 不知道销量怎么算，
+# 它只读取 world_state 中的值并渲染。
+#
+# 这个文件同时是：
+# 1. Engine 输出格式的规范文档
+# 2. Pydantic model 的 schema 参考
+# 3. 前端 API 对接的接口契约
+# ============================================================
+
+world_state:
+  # ────────────────────────
+  # 时间元数据
+  # ────────────────────────
+  tick: 0                           # 当前 tick 序号
+  year: 2025                        # 当前年份
+  quarter: 1                        # 当前季度 (1-4)
+  turn: "2025Q1"                    # 人类可读的回合标识
+
+  # ────────────────────────
+  # 技术状态
+  # ────────────────────────
+  technology_status:                 # key = technology_node.id
+    tech_tsmc_n3e_mature:
+      activated: true
+      activation_tick: 0
+    tech_silicon_anode_mature:
+      activated: true
+      activation_tick: 0
+    tech_ai_npu_dedicated:
+      activated: false               # 尚未商用
+    tech_ltpo_oled_v3:
+      activated: true
+      activation_tick: 0
+    tech_periscope_5x_mature:
+      activated: true
+      activation_tick: 0
+
+  # ────────────────────────
+  # 品牌状态（动态指标）
+  # ────────────────────────
+  brand_states:                      # key = brand.id
+    brand_apple:
+      cash_reserve: 120.0
+      brand_heat: 88.0
+      tech_leadership: 85
+      market_share: 18.0
+      supply_stability: 75.0
+      customer_satisfaction: 82.0
+      morale: 75.0
+      profit_margin: 35.0
+      ecosystem_strength: 85.0       # 衍生值
+      customer_retention_rate: 0.88  # 衍生值
+      product_lineup:
+        - iphone_16_pro_max
+        - iphone_16_pro
+        - iphone_16
+      quarterly_revenue: 28.0
+      quarterly_profit: 8.5
+      quarterly_shipment: 600        # 万台
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_samsung:
+      cash_reserve: 80.0
+      brand_heat: 78.0
+      tech_leadership: 80
+      market_share: 20.0
+      supply_stability: 88.0
+      customer_satisfaction: 68.0
+      morale: 70.0
+      profit_margin: 18.0
+      ecosystem_strength: 55.0
+      customer_retention_rate: 0.72
+      product_lineup:
+        - galaxy_s25_ultra
+        - galaxy_s24_ultra
+        - galaxy_z_fold6
+      quarterly_revenue: 22.0
+      quarterly_profit: 4.0
+      quarterly_shipment: 800
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_huawei:
+      cash_reserve: 60.0
+      brand_heat: 82.0
+      tech_leadership: 78
+      market_share: 12.0
+      supply_stability: 45.0
+      customer_satisfaction: 74.0
+      morale: 85.0
+      profit_margin: 20.0
+      ecosystem_strength: 55.0
+      customer_retention_rate: 0.68
+      product_lineup:
+        - mate_70_pro
+        - mate_60_pro
+        - pura_70_ultra
+      quarterly_revenue: 14.0
+      quarterly_profit: 2.8
+      quarterly_shipment: 450
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_oppo:
+      cash_reserve: 35.0
+      brand_heat: 65.0
+      tech_leadership: 52
+      market_share: 9.0
+      supply_stability: 65.0
+      customer_satisfaction: 70.0
+      morale: 72.0
+      profit_margin: 14.0
+      ecosystem_strength: 30.0
+      customer_retention_rate: 0.58
+      product_lineup:
+        - find_x8_pro
+        - find_x7_ultra
+      quarterly_revenue: 8.5
+      quarterly_profit: 1.2
+      quarterly_shipment: 350
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_vivo:
+      cash_reserve: 30.0
+      brand_heat: 62.0
+      tech_leadership: 50
+      market_share: 8.0
+      supply_stability: 62.0
+      customer_satisfaction: 68.0
+      morale: 68.0
+      profit_margin: 12.5
+      ecosystem_strength: 25.0
+      customer_retention_rate: 0.54
+      product_lineup:
+        - x200_pro
+        - x100_ultra
+      quarterly_revenue: 7.2
+      quarterly_profit: 0.9
+      quarterly_shipment: 320
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_xiaomi:
+      cash_reserve: 40.0
+      brand_heat: 72.0
+      tech_leadership: 58
+      market_share: 14.0
+      supply_stability: 60.0
+      customer_satisfaction: 62.0
+      morale: 74.0
+      profit_margin: 5.0
+      ecosystem_strength: 62.0
+      customer_retention_rate: 0.56
+      product_lineup:
+        - xiaomi_15_pro
+        - xiaomi_14_ultra
+      quarterly_revenue: 10.0
+      quarterly_profit: 0.5
+      quarterly_shipment: 500
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_honor:
+      cash_reserve: 25.0
+      brand_heat: 58.0
+      tech_leadership: 55
+      market_share: 6.0
+      supply_stability: 55.0
+      customer_satisfaction: 64.0
+      morale: 78.0
+      profit_margin: 11.0
+      ecosystem_strength: 20.0
+      customer_retention_rate: 0.48
+      product_lineup:
+        - magic7_pro
+        - magic6_pro
+      quarterly_revenue: 5.5
+      quarterly_profit: 0.6
+      quarterly_shipment: 250
+      last_decision_tick: 0
+      pending_decisions: []
+    brand_nothing:
+      cash_reserve: 15.0
+      brand_heat: 52.0
+      tech_leadership: 42
+      market_share: 1.0
+      supply_stability: 42.0
+      customer_satisfaction: 72.0
+      morale: 82.0
+      profit_margin: -5.0
+      ecosystem_strength: 10.0
+      customer_retention_rate: 0.35
+      product_lineup:
+        - nothing_phone_3
+        - nothing_phone_2
+      quarterly_revenue: 2.0
+      quarterly_profit: -0.3
+      quarterly_shipment: 50
+      last_decision_tick: 0
+      pending_decisions: []
+
+  # ────────────────────────
+  # 供应商状态
+  # ────────────────────────
+  supplier_states:
+    supplier_tsmc:
+      utilization: { "3nm_wafer_capacity": 0.92, "4nm_wafer_capacity": 0.85 }
+      risk_index: 0.45                # 综合风险指数
+    supplier_samsung_display:
+      utilization: { "ltpo_oled_panel": 0.88 }
+      risk_index: 0.25
+    supplier_boe:
+      utilization: { "oled_panel": 0.75 }
+      risk_index: 0.15
+    supplier_sony:
+      utilization: { "cmos_sensor": 0.90 }
+      risk_index: 0.20
+    supplier_atl:
+      utilization: { "battery_cell": 0.80 }
+      risk_index: 0.12
+    supplier_samsung_sdi:
+      utilization: { "battery_cell": 0.72 }
+      risk_index: 0.18
+    supplier_smic:
+      utilization: { "advanced_wafer_domestic": 0.95 }
+      risk_index: 0.60
+
+  # ────────────────────────
+  # 消费者分层状态
+  # ────────────────────────
+  consumer_segments:
+    segment_young_gamers:
+      size_pct: 18.0
+      current_preferences:
+        gaming_performance: 0.90
+        display_refresh: 0.85
+        cooling_quality: 0.70
+        price_sensitivity: 0.60
+        battery_charge_speed: 0.55
+        camera_quality: 0.30
+        build_quality: 0.25
+        brand_loyalty: 0.20
+        ai_assistant: 0.15
+        foldable_display: 0.10
+        camera_zoom: 0.05
+        long_battery: 0.40
+    segment_business_users:
+      size_pct: 22.0
+      current_preferences:
+        long_battery: 0.90
+        build_quality: 0.80
+        brand_loyalty: 0.70
+        security_features: 0.65
+        camera_quality: 0.40
+        ai_productivity: 0.35
+        display_refresh: 0.20
+        gaming_performance: 0.10
+        price_sensitivity: 0.45
+        foldable_display: 0.25
+    segment_tech_enthusiasts:
+      size_pct: 10.0
+      current_preferences:
+        spec_leadership: 0.95
+        ai_capability: 0.85
+        first_adopter: 0.90
+        camera_zoom: 0.60
+        gaming_performance: 0.50
+        price_sensitivity: 0.30
+        brand_loyalty: 0.15
+        build_quality: 0.40
+        foldable_display: 0.55
+    segment_mass_market:
+      size_pct: 35.0
+      current_preferences:
+        price_sensitivity: 0.80
+        build_quality: 0.55
+        camera_quality: 0.55
+        long_battery: 0.65
+        brand_loyalty: 0.40
+        display_refresh: 0.30
+        gaming_performance: 0.25
+        ai_assistant: 0.20
+        foldable_display: 0.05
+    segment_photo_creators:
+      size_pct: 15.0
+      current_preferences:
+        camera_quality: 0.95
+        camera_zoom: 0.85
+        ai_photo_editing: 0.70
+        build_quality: 0.55
+        price_sensitivity: 0.45
+        brand_loyalty: 0.50
+        gaming_performance: 0.15
+        long_battery: 0.40
+
+  # ────────────────────────
+  # 全局世界指标
+  # ────────────────────────
+  global_metrics:
+    soc:
+      performance_base: 100.0         # 基线100，乘数累计
+      power_efficiency_base: 100.0
+      cost_per_die_base: 100.0
+    battery:
+      energy_density_whl: 100.0
+      cost_per_mah: 100.0
+    display:
+      peak_brightness_nit: 100.0
+      power_efficiency: 100.0
+    camera:
+      zoom_capability_index: 100.0
+      module_cost: 100.0
+    ai:
+      on_device_capability_index: 100.0
+
+  # ────────────────────────
+  # 当前生效的规则
+  # ────────────────────────
+  active_rules:
+    - rule_battery_innovation_reshapes_preference
+    - rule_ltpo_oled_boosts_refresh_preference
+    - rule_periscope_boosts_zoom_preference
+    - rule_ecosystem_network_effect_apple
+    - rule_iot_ecosystem_boosts_xiaomi_heat
+
+  # ────────────────────────
+  # 待处理的链式效应（从上一个 tick 遗留）
+  # ────────────────────────
+  pending_events: []
+
+  # ────────────────────────
+  # 世界新闻（本 tick 生成）
+  # ────────────────────────
+  world_news:
+    - headline: "TSMC N3E工艺持续满产，旗舰SoC供应偏紧"
+      category: "supply_chain"
+      affected_entities: ["supplier_tsmc", "brand_apple", "brand_qualcomm"]
+      severity: "medium"
+    - headline: "LTPO OLED面板渗透率突破50%，高刷屏成为新机标配"
+      category: "technology"
+      affected_entities: ["supplier_samsung_display", "supplier_boe"]
+      severity: "low"

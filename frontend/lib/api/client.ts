@@ -179,6 +179,31 @@ export const rssApi = {
     request<{ count: number; items: { id: string; title: string; source_name: string; source_category: string }[] }>("/rss/refresh"),
 };
 
+// Phones API
+export const phonesApi = {
+  /** Get all brands with model summaries */
+  listAll: () =>
+    request<Record<string, {
+      name: string;
+      model_count: number;
+      models: { id: string; model: string; release_year: number; tier: string; price_range: string }[];
+    }>>("/phones"),
+
+  /** Get detailed models for a specific brand */
+  getBrand: (brandId: string) =>
+    request<{
+      name: string;
+      models: {
+        id: string; model: string; release_year: number; tier: string;
+        price_range: string;
+        key_specs: Record<string, string>;
+        selling_points: string[];
+        strengths: string[];
+        weaknesses: string[];
+      }[];
+    }>(`/phones/${brandId}`),
+};
+
 // RSS Intelligence API
 export const rssIntelApi = {
   getEvents: (refresh = false) =>

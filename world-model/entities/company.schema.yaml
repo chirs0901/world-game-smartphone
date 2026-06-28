@@ -1,0 +1,492 @@
+# ============================================================
+# Company Agent Schema — 公司智能体定义
+#
+# 每个公司是一个有 DNA、目标函数、自主决策周期的 Agent。
+# DNA 是不可变的行为倾向（0-1），驱动 Agent 的每个决策。
+# goal_function 定义了 Agent 每个周期优化的目标。
+# decision_period 控制 Agent 多久做一次战略决策（单位：tick/季度）。
+# ============================================================
+
+companies:
+  # ──────────────────────────────────────────────────
+  # Apple — 生态护城河 + 利润第一
+  # ──────────────────────────────────────────────────
+  - id: brand_apple
+    name: "Apple"
+    country: "美国"
+    logo_emoji: "🍎"
+    tagline: "Think Different"
+    description: "全球最具价值的科技品牌，自研A系列/M系列芯片和iOS封闭生态形成深厚护城河。"
+
+    dna:
+      profit_first: 0.9                  # 利润优先
+      innovation_lead: 0.85              # 创新引领
+      ecosystem_lock: 0.95               # 生态锁定
+      volume_aggressive: 0.2             # 不追求出货量
+      price_aggressive: 0.1              # 不参与价格战
+      supply_diversify: 0.7              # 供应链分散
+      risk_appetite: 0.4                 # 中等风险偏好
+
+    goal_function:
+      maximize:
+        - profit_margin
+        - ecosystem_strength
+        - ai_leadership
+      constraints:
+        - "never_enter_sub_400_usd"       # 低于$400绝不进入
+        - "key_component_dual_source"      # 关键部件双源供应
+
+    decision_period: 4                    # 每年做一次战略级决策
+
+    initial_state:
+      cash_reserve: 120.0                # 亿元
+      brand_heat: 88                     # 0-100
+      tech_leadership: 85
+      market_share: 18
+      supply_stability: 75
+      customer_satisfaction: 82
+      morale: 75
+      profit_margin: 35.0                # 利润率%
+
+    product_lineup:
+      - iphone_16_pro_max
+      - iphone_16_pro
+      - iphone_16
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "3nm_wafer_capacity"
+        allocation_pct: 35
+      - supplier: supplier_samsung_display
+        resource: "ltpo_oled_panel"
+        allocation_pct: 40
+      - supplier: supplier_sony
+        resource: "cmos_sensor"
+        allocation_pct: 25
+
+    ai_strategy:
+      positioning: "端侧AI生态引领者"
+      key_investment: ["自研NPU架构", "端侧大模型压缩", "多模态AI助手"]
+      differentiation: "Apple Intelligence深度集成生态，AI能力跨设备协同"
+
+  # ──────────────────────────────────────────────────
+  # Samsung — 全产业链 + 折叠屏先发
+  # ──────────────────────────────────────────────────
+  - id: brand_samsung
+    name: "Samsung"
+    country: "韩国"
+    logo_emoji: "📱"
+    tagline: "Do What You Can't"
+    description: "全球出货量最大的手机制造商，全产业链垂直整合，折叠屏技术全球领先。"
+
+    dna:
+      profit_first: 0.5
+      innovation_lead: 0.75
+      ecosystem_lock: 0.6
+      volume_aggressive: 0.85            # 追求出货量
+      price_aggressive: 0.5
+      supply_diversify: 0.3              # 自有产能强，不急于分散
+      risk_appetite: 0.5
+
+    goal_function:
+      maximize:
+        - global_shipment_volume
+        - display_technology_lead
+        - foldable_market_dominance
+      constraints:
+        - "component_divisions_also_profitable"  # 零部件业务也要盈利
+
+    decision_period: 2                    # 每半年做一次决策
+
+    initial_state:
+      cash_reserve: 80.0
+      brand_heat: 78
+      tech_leadership: 80
+      market_share: 20
+      supply_stability: 88               # 自产能力强
+      customer_satisfaction: 68
+      morale: 70
+      profit_margin: 18.0
+
+    product_lineup:
+      - galaxy_s25_ultra
+      - galaxy_s24_ultra
+      - galaxy_z_fold6
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "3nm_wafer_capacity"
+        allocation_pct: 10
+      - supplier: supplier_samsung_display
+        resource: "ltpo_oled_panel"
+        allocation_pct: 25
+      - supplier: supplier_samsung_sdi
+        resource: "battery_cell"
+        allocation_pct: 30
+
+    ai_strategy:
+      positioning: "AI全场景生活助手"
+      key_investment: ["Galaxy AI端侧能力", "三星Gauss自研模型", "实时翻译与摘要"]
+      differentiation: "AI能力贯穿手表、耳机、平板等全产品线"
+
+  # ──────────────────────────────────────────────────
+  # Xiaomi — 性价比 + AIoT生态
+  # ──────────────────────────────────────────────────
+  - id: brand_xiaomi
+    name: "Xiaomi"
+    country: "中国"
+    logo_emoji: "🔥"
+    tagline: "Innovation for Everyone"
+    description: "以极致性价比起家，硬件利润率控制在5%以内，靠互联网服务和AIoT生态变现。"
+
+    dna:
+      profit_first: 0.1                  # 硬件不追求利润
+      innovation_lead: 0.5
+      ecosystem_lock: 0.85               # IoT生态锁定
+      volume_aggressive: 0.95            # 极致追求出货量
+      price_aggressive: 0.95             # 极致性价比
+      supply_diversify: 0.5
+      risk_appetite: 0.6
+
+    goal_function:
+      maximize:
+        - iot_ecosystem_devices
+        - internet_service_revenue
+        - global_market_share
+      constraints:
+        - "hardware_profit_margin_below_5pct"  # 硬件利润率<5%
+
+    decision_period: 2
+
+    initial_state:
+      cash_reserve: 40.0
+      brand_heat: 72
+      tech_leadership: 58
+      market_share: 14
+      supply_stability: 60
+      customer_satisfaction: 62
+      morale: 74
+      profit_margin: 5.0
+
+    product_lineup:
+      - xiaomi_15_pro
+      - xiaomi_14_ultra
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "4nm_wafer_capacity"
+        allocation_pct: 8
+      - supplier: supplier_boe
+        resource: "oled_panel"
+        allocation_pct: 30
+      - supplier: supplier_atl
+        resource: "battery_cell"
+        allocation_pct: 15
+
+    ai_strategy:
+      positioning: "AIoT生态普惠者"
+      key_investment: ["小爱同学大模型升级", "AIoT设备协同", "端云混合AI架构"]
+      differentiation: "AI+IoT全屋智能生态，极致性价比AI体验"
+
+  # ──────────────────────────────────────────────────
+  # Huawei — 全栈自研 + 影像王者
+  # ──────────────────────────────────────────────────
+  - id: brand_huawei
+    name: "Huawei"
+    country: "中国"
+    logo_emoji: "🌐"
+    tagline: "Make It Possible"
+    description: "中国最具技术实力的科技公司之一，自研麒麟芯片和鸿蒙系统是核心竞争力，影像技术行业领先，但面临先进制程受限的外部挑战。"
+
+    dna:
+      profit_first: 0.4
+      innovation_lead: 0.90                  # 极致自研
+      ecosystem_lock: 0.80                   # 鸿蒙生态
+      volume_aggressive: 0.5
+      price_aggressive: 0.3
+      supply_diversify: 0.90                 # 被迫多元化
+      risk_appetite: 0.85                    # 高风险高投入
+
+    goal_function:
+      maximize:
+        - self_sufficiency_index             # 自主可控
+        - domestic_market_share
+        - camera_technology_lead
+        - harmony_ecosystem_strength
+      constraints:
+        - "advanced_node_embargo"             # 先进制程受限
+        - "no_google_mobile_services"         # GMS不可用
+
+    decision_period: 4
+
+    initial_state:
+      cash_reserve: 60.0
+      brand_heat: 82
+      tech_leadership: 78
+      market_share: 12
+      supply_stability: 45                     # 先进制程受限
+      customer_satisfaction: 74
+      morale: 85                               # 技术自主凝聚力
+      profit_margin: 20.0
+
+    product_lineup:
+      - mate_70_pro
+      - mate_60_pro
+      - pura_70_ultra
+
+    supply_chain:
+      - supplier: supplier_smic
+        resource: "advanced_wafer_domestic"
+        allocation_pct: 60
+      - supplier: supplier_boe
+        resource: "oled_panel"
+        allocation_pct: 35
+      - supplier: supplier_sony
+        resource: "cmos_sensor"
+        allocation_pct: 20
+
+    ai_strategy:
+      positioning: "全栈自研AI终端"
+      key_investment: ["盘古大模型端侧化", "昇腾芯片AI算力", "多模态交互引擎"]
+      differentiation: "芯片+OS+AI全栈自研，不受外部AI生态限制"
+
+  # ──────────────────────────────────────────────────
+  # OPPO — 影像调校 + 快充王者
+  # ──────────────────────────────────────────────────
+  - id: brand_oppo
+    name: "OPPO"
+    country: "中国"
+    logo_emoji: "📸"
+    tagline: "Inspiration Ahead"
+    description: "以影像和设计见长的品牌，线下渠道覆盖广泛，营销能力出色，ColorOS系统体验持续进化，在东南亚和印度市场表现强劲。"
+
+    dna:
+      profit_first: 0.5
+      innovation_lead: 0.55
+      ecosystem_lock: 0.4
+      volume_aggressive: 0.6
+      price_aggressive: 0.55
+      supply_diversify: 0.5
+      risk_appetite: 0.45
+
+    goal_function:
+      maximize:
+        - camera_user_experience
+        - offline_channel_coverage
+        - southeast_asia_market_share
+        - fast_charge_technology_lead
+      constraints:
+        - "find_series_high_end_breakthrough"   # Find系列必须向上突破
+
+    decision_period: 2
+
+    initial_state:
+      cash_reserve: 35.0
+      brand_heat: 65
+      tech_leadership: 52
+      market_share: 9
+      supply_stability: 65
+      customer_satisfaction: 70
+      morale: 72
+      profit_margin: 14.0
+
+    product_lineup:
+      - find_x8_pro
+      - find_x7_ultra
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "4nm_wafer_capacity"
+        allocation_pct: 10
+      - supplier: supplier_boe
+        resource: "oled_panel"
+        allocation_pct: 20
+      - supplier: supplier_sony
+        resource: "cmos_sensor"
+        allocation_pct: 18
+      - supplier: supplier_atl
+        resource: "battery_cell"
+        allocation_pct: 12
+
+    ai_strategy:
+      positioning: "AI影像与年轻化体验"
+      key_investment: ["AI美颜与修图算法", "智能拍摄场景识别", "端侧轻量模型"]
+      differentiation: "AI赋能影像体验，聚焦年轻用户场景"
+
+  # ──────────────────────────────────────────────────
+  # vivo — 音影基因 + 印度市场
+  # ──────────────────────────────────────────────────
+  - id: brand_vivo
+    name: "vivo"
+    country: "中国"
+    logo_emoji: "🎵"
+    tagline: "Camera & Music"
+    description: "以音质和影像为品牌基因，在印度和东南亚有强势渠道。与蔡司联合研发影像系统，iQOO子品牌主攻性能赛道。"
+
+    dna:
+      profit_first: 0.4
+      innovation_lead: 0.55
+      ecosystem_lock: 0.35
+      volume_aggressive: 0.65
+      price_aggressive: 0.5
+      supply_diversify: 0.5
+      risk_appetite: 0.4
+
+    goal_function:
+      maximize:
+        - india_market_share
+        - camera_zeiss_collaboration
+        - audio_quality_lead
+        - iqoo_gaming_segment_growth
+      constraints:
+        - "x_series_imaging_flagship"            # X系列影像旗舰定位
+
+    decision_period: 2
+
+    initial_state:
+      cash_reserve: 30.0
+      brand_heat: 62
+      tech_leadership: 50
+      market_share: 8
+      supply_stability: 62
+      customer_satisfaction: 68
+      morale: 68
+      profit_margin: 12.5
+
+    product_lineup:
+      - x200_pro
+      - x100_ultra
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "4nm_wafer_capacity"
+        allocation_pct: 8
+      - supplier: supplier_samsung_display
+        resource: "oled_panel"
+        allocation_pct: 12
+      - supplier: supplier_sony
+        resource: "cmos_sensor"
+        allocation_pct: 15
+
+    ai_strategy:
+      positioning: "AI音影融合体验"
+      key_investment: ["AI降噪与音质增强", "智能影像算法", "端侧语音助手"]
+      differentiation: "AI+音频+影像三维差异化"
+
+  # ──────────────────────────────────────────────────
+  # Honor — 独立重生 + 海外突围
+  # ──────────────────────────────────────────────────
+  - id: brand_honor
+    name: "Honor"
+    country: "中国"
+    logo_emoji: "⚡"
+    tagline: "Go Beyond"
+    description: "从华为独立出来的品牌，正快速重建供应链和品牌认知。继承了部分技术积累和渠道资源，Magic系列旗舰定位清晰，海外市场增长迅速。"
+
+    dna:
+      profit_first: 0.35
+      innovation_lead: 0.60
+      ecosystem_lock: 0.4
+      volume_aggressive: 0.7
+      price_aggressive: 0.6
+      supply_diversify: 0.75                  # 重建供应链必须多元
+      risk_appetite: 0.6
+
+    goal_function:
+      maximize:
+        - overseas_market_growth
+        - magic_series_premium_perception
+        - supply_chain_recovery
+        - independent_brand_awareness
+      constraints:
+        - "rebuild_from_sanction_shadow"        # 摆脱制裁阴影
+
+    decision_period: 2
+
+    initial_state:
+      cash_reserve: 25.0
+      brand_heat: 58
+      tech_leadership: 55
+      market_share: 6
+      supply_stability: 55                      # 重建中
+      customer_satisfaction: 64
+      morale: 78                                 # 独立创业精神
+      profit_margin: 11.0
+
+    product_lineup:
+      - magic7_pro
+      - magic6_pro
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "4nm_wafer_capacity"
+        allocation_pct: 5
+      - supplier: supplier_boe
+        resource: "oled_panel"
+        allocation_pct: 15
+      - supplier: supplier_sony
+        resource: "cmos_sensor"
+        allocation_pct: 10
+
+    ai_strategy:
+      positioning: "AI赋能年轻商务场景"
+      key_investment: ["端侧AI办公助手", "AI安全防护", "智慧互联体验"]
+      differentiation: "面向年轻商务人群的AI效率工具"
+
+  # ──────────────────────────────────────────────────
+  # Nothing — 设计驱动 + 社区共创
+  # ──────────────────────────────────────────────────
+  - id: brand_nothing
+    name: "Nothing"
+    country: "英国"
+    logo_emoji: "💡"
+    tagline: "Less is Everything"
+    description: "由一加联合创始人创立的新锐品牌，以透明设计和极简美学为标志。Glyph灯效交互辨识度极高，社区共创模式独特，但规模仍在成长阶段。"
+
+    dna:
+      profit_first: 0.2
+      innovation_lead: 0.60
+      ecosystem_lock: 0.3
+      volume_aggressive: 0.4
+      price_aggressive: 0.3
+      supply_diversify: 0.5
+      risk_appetite: 0.8                       # 小品牌高冒险
+
+    goal_function:
+      maximize:
+        - design_differentiation
+        - community_engagement
+        - brand_coolness_index
+        - product_line_expansion
+      constraints:
+        - "small_scale_premium_positioning"     # 小规模精品定位
+        - "limited_production_capacity"          # 产能有限
+
+    decision_period: 2
+
+    initial_state:
+      cash_reserve: 15.0
+      brand_heat: 52
+      tech_leadership: 42
+      market_share: 1
+      supply_stability: 42
+      customer_satisfaction: 72
+      morale: 82                                 # 创业激情
+      profit_margin: -5.0                        # 早期投入阶段
+
+    product_lineup:
+      - nothing_phone_3
+      - nothing_phone_2
+
+    supply_chain:
+      - supplier: supplier_tsmc
+        resource: "4nm_wafer_capacity"
+        allocation_pct: 2
+      - supplier: supplier_boe
+        resource: "oled_panel"
+        allocation_pct: 5
+
+    ai_strategy:
+      positioning: "AI驱动的极简设计体验"
+      key_investment: ["AI交互设计", "端侧轻量AI助手", "社区共创AI功能"]
+      differentiation: "AI+设计双驱动，社区参与AI功能开发"

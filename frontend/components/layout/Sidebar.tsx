@@ -14,17 +14,6 @@ const NAV_ITEMS = [
   { href: "/sandbox", label: "推演沙盘", icon: "🗺️" },
 ];
 
-const COMPANY_NAMES: Record<string, { name: string; emoji: string }> = {
-  apply: { name: "Apply", emoji: "🍎" },
-  samsun: { name: "Samsun", emoji: "📱" },
-  huawey: { name: "Huawey", emoji: "🌐" },
-  oyeah: { name: "OYeah", emoji: "📸" },
-  viva: { name: "Viva", emoji: "🎵" },
-  xiaomee: { name: "Xiaomee", emoji: "🔥" },
-  honorx: { name: "HonorX", emoji: "⚡" },
-  nothingx: { name: "NothingX", emoji: "💡" },
-};
-
 export default function Sidebar() {
   const pathname = usePathname();
   const session = useGameStore((s) => s.session);
@@ -36,8 +25,8 @@ export default function Sidebar() {
 
   const companyId = session?.config.company_id ?? "";
   const company = companies?.find((c) => c.id === companyId);
-  const companyName = company?.name ?? COMPANY_NAMES[companyId]?.name ?? companyId;
-  const companyEmoji = company?.logo_emoji ?? COMPANY_NAMES[companyId]?.emoji ?? "📱";
+  const companyName = company?.name ?? companyId;
+  const companyEmoji = company?.logo_emoji ?? "📱";
 
   return (
     <aside className="w-64 text-white flex flex-col min-h-screen" style={{ backgroundColor: "var(--brand-sidebar-bg)" }}>

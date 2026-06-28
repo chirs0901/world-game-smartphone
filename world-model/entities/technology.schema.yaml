@@ -1,0 +1,177 @@
+# ============================================================
+# Technology Node Schema — 手机产业技术节点定义
+# 
+# 每个 Technology Node 从"未激活"变为"激活"时，
+# 其 effects 会自动传播到世界状态，改变品牌竞争力、成本和消费者偏好。
+#
+# Tier: short_term (1年落地) | mid_term (3年) | long_term (5年)
+# Operation: multiply | add | set
+# ============================================================
+
+technology_nodes:
+  # ──────────────────────────────────────────────────
+  # 半导体制造
+  # ──────────────────────────────────────────────────
+  - id: tech_tsmc_n3e_mature
+    name: "TSMC N3E 量产成熟"
+    category: semiconductor_fab
+    tier: mid_term
+    activated: true                     # 2025年N3E已量产
+    prerequisites: []
+    unlocks:
+      - tech_2nm_research
+      - tech_3d_packaging
+    effects:
+      - target: "world.soc.performance_base"
+        operation: multiply
+        value: 1.18
+      - target: "world.soc.cost_per_die_base"
+        operation: multiply
+        value: 1.10
+      - target: "tech.mid_chip.competitiveness_index"
+        operation: add
+        value: -5                     # 中端芯片竞争力下降
+      - target: "world.soc.power_efficiency_base"
+        operation: multiply
+        value: 0.85                   # 能效提升15%
+    suppliers:
+      - supplier_tsmc
+    adopters:
+      - brand_apple
+      - brand_qualcomm
+      - brand_mediatek
+
+  # ──────────────────────────────────────────────────
+  # 电池技术
+  # ──────────────────────────────────────────────────
+  - id: tech_silicon_anode_mature
+    name: "硅碳负极电池规模量产"
+    category: battery
+    tier: short_term
+    activated: true                     # 2024-2025年已量产
+    prerequisites: []
+    unlocks:
+      - tech_solid_state_battery
+    effects:
+      - target: "world.battery.energy_density_whl"
+        operation: multiply
+        value: 1.20                   # 能量密度 +20%
+      - target: "world.battery.cost_per_mah"
+        operation: multiply
+        value: 1.06                   # 成本微增6%
+      - target: "segment_young_gamers.preferences.long_battery"
+        operation: add
+        value: 5
+      - target: "segment_business_users.preferences.long_battery"
+        operation: add
+        value: 8
+    suppliers:
+      - supplier_atl
+      - supplier_samsung_sdi
+    adopters:
+      - brand_apple
+      - brand_samsung
+      - brand_xiaomi
+      - brand_oppo
+      - brand_vivo
+      - brand_honor
+
+  # ──────────────────────────────────────────────────
+  # AI 芯片
+  # ──────────────────────────────────────────────────
+  - id: tech_ai_npu_dedicated
+    name: "独立端侧AI芯片商用"
+    category: ai_computing
+    tier: mid_term
+    activated: false                    # 尚未大规模商用
+    prerequisites:
+      - tech_tsmc_n3e_mature
+    unlocks:
+      - tech_neuromorphic_chip
+    effects:
+      - target: "world.ai.on_device_capability_index"
+        operation: multiply
+        value: 2.5                    # 端侧AI能力大幅提升
+      - target: "segment_tech_enthusiasts.preferences.ai_capability"
+        operation: add
+        value: 20
+      - target: "segment_young_gamers.preferences.ai_assistant"
+        operation: add
+        value: 12
+      - target: "segment_business_users.preferences.ai_productivity"
+        operation: add
+        value: 18
+      - target: "world.soc.cost_per_die_base"
+        operation: multiply
+        value: 1.15                   # 增加独立NPU成本
+    suppliers:
+      - supplier_qualcomm
+      - supplier_apple
+    adopters:
+      - brand_apple
+      - brand_qualcomm
+
+  # ──────────────────────────────────────────────────
+  # 显示技术
+  # ──────────────────────────────────────────────────
+  - id: tech_ltpo_oled_v3
+    name: "LTPO OLED 第三代量产"
+    category: display
+    tier: short_term
+    activated: true                     # 三星E7/京东方Q10已量产
+    prerequisites: []
+    unlocks:
+      - tech_microled_display
+      - tech_foldable_utg_v2
+    effects:
+      - target: "world.display.peak_brightness_nit"
+        operation: multiply
+        value: 1.30                   # 亮度 +30%
+      - target: "world.display.power_efficiency"
+        operation: multiply
+        value: 0.85                   # 功耗降低15%
+      - target: "segment_young_gamers.preferences.display_refresh"
+        operation: add
+        value: 8
+    suppliers:
+      - supplier_samsung_display
+      - supplier_boe
+    adopters:
+      - brand_apple
+      - brand_samsung
+      - brand_xiaomi
+      - brand_oppo
+      - brand_vivo
+      - brand_honor
+
+  # ──────────────────────────────────────────────────
+  # 影像技术
+  # ──────────────────────────────────────────────────
+  - id: tech_periscope_5x_mature
+    name: "潜望式5倍光变模组成熟"
+    category: camera
+    tier: short_term
+    activated: true                     # 2024年多品牌搭载
+    prerequisites: []
+    unlocks:
+      - tech_continuous_optical_zoom
+    effects:
+      - target: "world.camera.zoom_capability_index"
+        operation: multiply
+        value: 1.40
+      - target: "world.camera.module_cost"
+        operation: multiply
+        value: 1.25                   # 模组成本较高
+      - target: "segment_tech_enthusiasts.preferences.camera_zoom"
+        operation: add
+        value: 15
+    suppliers:
+      - supplier_sony
+      - supplier_samsung_isocell
+    adopters:
+      - brand_apple
+      - brand_samsung
+      - brand_huawei
+      - brand_oppo
+      - brand_vivo
+      - brand_xiaomi

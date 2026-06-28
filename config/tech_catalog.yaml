@@ -1,0 +1,600 @@
+# ============================================================
+# Technology Component Catalog — Real-World Device Roadmap
+# 手机核心器件技术路线图（基于真实行业数据）
+#
+# Tiers: short_term (1年落地), mid_term (3年), long_term (5年)
+# Research types: procurement (采购), joint_rd (联合研发), self_developed (自研)
+# ============================================================
+
+categories:
+  # ── SoC 芯片 ──
+  - id: soc
+    name: "芯片 (SoC)"
+    default_option_id: soc_snapdragon_8gen3
+    options:
+      - id: soc_snapdragon_8gen3
+        name: "骁龙 8 Gen 3 (4nm)"
+        tier: short_term
+        cost_share_pct: 35.0
+        quality_score: 85
+        tech_maturity: 0.88
+        selling_point_tags: ["旗舰性能", "AI算力", "光追GPU"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "高通骁龙8 Gen 3，台积电N4P工艺，Cortex-X4超大核，Adreno 750 GPU"
+        space_cost: 4.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "Qualcomm"
+          fab: "TSMC N4P"
+          cores: "1×X4 + 5×A720 + 2×A520"
+
+      - id: soc_snapdragon_8gen4
+        name: "骁龙 8 Gen 4 (3nm)"
+        tier: mid_term
+        cost_share_pct: 42.0
+        quality_score: 88
+        tech_maturity: 0.65
+        selling_point_tags: ["3nm旗舰", "自研Oryon CPU", "超强AI"]
+        ffr_base: 0.5
+        supplier_lock_required: true
+        description: "高通首款自研Oryon CPU架构，台积电N3E工艺，性能飞跃但良率爬坡中"
+        space_cost: 3.5
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "Qualcomm"
+          fab: "TSMC N3E"
+          cores: "2×Oryon Prime + 6×Oryon Performance"
+
+      - id: soc_dimensity_9300
+        name: "天玑 9300 (4nm)"
+        tier: short_term
+        cost_share_pct: 28.0
+        quality_score: 82
+        tech_maturity: 0.80
+        selling_point_tags: ["全大核架构", "高性价比", "AI算力"]
+        ffr_base: 0.4
+        supplier_lock_required: false
+        description: "联发科天玑9300，台积电N4P，全大核Cortex-X4+A720设计，能效出色"
+        space_cost: 4.5
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "MediaTek"
+          fab: "TSMC N4P"
+          cores: "4×X4 + 4×A720"
+
+      - id: soc_a18_pro
+        name: "A18 Pro (3nm)"
+        tier: short_term
+        cost_share_pct: 0.0   # Apple自研，无采购成本
+        quality_score: 92
+        tech_maturity: 0.85
+        selling_point_tags: ["自研芯片", "单核性能之王", "生态深度整合"]
+        ffr_base: 0.15
+        supplier_lock_required: true
+        description: "Apple自研A18 Pro，台积电N3E，单核性能业界顶尖，iOS深度优化"
+        space_cost: 3.0
+        research_type: self_developed
+        conflicts_with: []
+        real_world:
+          supplier: "Apple (自研)"
+          fab: "TSMC N3E"
+          cores: "6核 (2性能 + 4效能)"
+
+      - id: soc_kirin_9010
+        name: "麒麟 9010 (7nm+)"
+        tier: short_term
+        cost_share_pct: 25.0
+        quality_score: 75
+        tech_maturity: 0.70
+        selling_point_tags: ["国产自研", "鸿蒙生态", "NPU领先"]
+        ffr_base: 0.6
+        supplier_lock_required: true
+        description: "华为自研麒麟9010，SMIC代工，受制程限制但鸿蒙优化表现出色"
+        space_cost: 4.5
+        research_type: self_developed
+        conflicts_with: []
+        real_world:
+          supplier: "HiSilicon (自研)"
+          fab: "SMIC N+2"
+          cores: "自研泰山架构"
+
+      - id: soc_mediatek_mid
+        name: "天玑 8300 (4nm)"
+        tier: short_term
+        cost_share_pct: 22.0
+        quality_score: 80
+        tech_maturity: 0.90
+        selling_point_tags: ["中端性能", "功耗平衡", "高性价比"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "联发科天玑8300，台积电N4，中高端性价比首选"
+        space_cost: 5.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "MediaTek"
+          fab: "TSMC N4"
+          cores: "1×X3 + 3×A715 + 4×A510"
+
+      - id: soc_self_dev_2nm
+        name: "自研芯片 (2nm)"
+        tier: long_term
+        cost_share_pct: 55.0
+        quality_score: 78
+        tech_maturity: 0.30
+        selling_point_tags: ["自研2nm", "独家性能壁垒", "极致能效"]
+        ffr_base: 1.2
+        supplier_lock_required: true
+        description: "从零自研2nm芯片，研发投入巨大，良率风险高但成功后壁垒极高"
+        space_cost: 3.0
+        research_type: self_developed
+        conflicts_with: []
+        real_world:
+          fab: "TSMC N2 (规划中)"
+
+  # ── 屏幕 / Display ──
+  - id: display
+    name: "屏幕 (显示)"
+    default_option_id: display_ltpo_oled
+    options:
+      - id: display_ltpo_oled
+        name: "LTPO OLED (三星 E7)"
+        tier: short_term
+        cost_share_pct: 18.0
+        quality_score: 90
+        tech_maturity: 0.88
+        selling_point_tags: ["LTPO自适应刷新", "2600nit峰值亮度", "色彩精准"]
+        ffr_base: 0.15
+        supplier_lock_required: false
+        description: "三星显示E7发光材料，1-120Hz自适应刷新率，业界顶级面板"
+        space_cost: 3.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "Samsung Display"
+          material: "E7 OLED"
+          peak_brightness: "2600nit"
+
+      - id: display_samsung_m14
+        name: "三星 M14 OLED (折叠)"
+        tier: mid_term
+        cost_share_pct: 26.0
+        quality_score: 85
+        tech_maturity: 0.55
+        selling_point_tags: ["折叠屏", "M14发光材料", "UTG超薄玻璃"]
+        ffr_base: 1.2
+        supplier_lock_required: true
+        description: "三星最新M14折叠面板，UTG玻璃覆盖，折痕控制出色但良率低"
+        space_cost: 8.0
+        research_type: procurement
+        conflicts_with: [soc_self_dev_2nm, battery_silicon_120w]
+        real_world:
+          supplier: "Samsung Display"
+          material: "M14 OLED"
+          cover: "UTG (Ultra Thin Glass)"
+
+      - id: display_boe_q10
+        name: "京东方 Q10 OLED"
+        tier: short_term
+        cost_share_pct: 14.0
+        quality_score: 80
+        tech_maturity: 0.80
+        selling_point_tags: ["国产高端屏", "高频PWM调光", "高性价比"]
+        ffr_base: 0.4
+        supplier_lock_required: false
+        description: "京东方Q10发光材料，高频PWM护眼调光，国产替代旗舰方案"
+        space_cost: 3.5
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "BOE (京东方)"
+          material: "Q10 OLED"
+
+      - id: display_flat_144hz
+        name: "直屏 144Hz OLED (TCL华星)"
+        tier: short_term
+        cost_share_pct: 12.0
+        quality_score: 82
+        tech_maturity: 0.90
+        selling_point_tags: ["144Hz超高刷", "电竞直屏", "瞬时触控"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "TCL华星C8发光材料，144Hz直屏，电竞级触控响应"
+        space_cost: 2.5
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "TCL华星光电"
+          material: "C8 OLED"
+
+      - id: display_microled
+        name: "MicroLED 显示屏"
+        tier: long_term
+        cost_share_pct: 35.0
+        quality_score: 95
+        tech_maturity: 0.15
+        selling_point_tags: ["MicroLED", "自发光", "零烧屏", "超高亮度"]
+        ffr_base: 3.0
+        supplier_lock_required: true
+        description: "下一代显示技术，自发光无机LED，无烧屏且亮度极高，量产难度极大"
+        space_cost: 2.5
+        research_type: joint_rd
+        conflicts_with: []
+        real_world:
+          supplier: "三星/TCL/利亚德"
+          status: "原型阶段"
+
+  # ── 影像 / Camera ──
+  - id: camera
+    name: "影像 (拍照/录像)"
+    default_option_id: camera_imx989
+    options:
+      - id: camera_imx989
+        name: "索尼 IMX989 (1英寸)"
+        tier: short_term
+        cost_share_pct: 16.0
+        quality_score: 88
+        tech_maturity: 0.82
+        selling_point_tags: ["1英寸大底", "计算摄影", "影像旗舰"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "索尼1英寸大底传感器，50MP，旗舰影像标配，夜景表现王者级"
+        space_cost: 5.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "Sony Semiconductor"
+          sensor_size: '1"'
+          pixel_size: "1.6μm (4合1)"
+
+      - id: camera_lyt900
+        name: "索尼 LYT-900 (1英寸, 双层晶体管)"
+        tier: mid_term
+        cost_share_pct: 20.0
+        quality_score: 92
+        tech_maturity: 0.65
+        selling_point_tags: ["双层晶体管", "动态范围翻倍", "影像革命"]
+        ffr_base: 0.5
+        supplier_lock_required: true
+        description: "索尼双层晶体管像素技术，动态范围和噪声控制显著提升"
+        space_cost: 5.5
+        research_type: procurement
+        conflicts_with: [battery_solid_state]
+        real_world:
+          supplier: "Sony Semiconductor"
+          tech: "双层晶体管像素"
+
+      - id: camera_periscope_pro
+        name: "潜望长焦 Pro (三星HP9, 5x光变)"
+        tier: mid_term
+        cost_share_pct: 18.0
+        quality_score: 82
+        tech_maturity: 0.65
+        selling_point_tags: ["潜望长焦", "5倍光学变焦", "超远摄"]
+        ffr_base: 0.7
+        supplier_lock_required: true
+        description: "三星HP9传感器潜望式长焦模组，200MP大底，远摄画质出色"
+        space_cost: 7.0
+        research_type: procurement
+        conflicts_with: [battery_solid_state]
+        real_world:
+          supplier: "Samsung ISOCELL"
+          sensor: "HP9 200MP"
+          zoom: "5x optical"
+
+      - id: camera_ov50k
+        name: "豪威 OV50K (1/1.3\")"
+        tier: short_term
+        cost_share_pct: 12.0
+        quality_score: 80
+        tech_maturity: 0.85
+        selling_point_tags: ["国产大底", "LOFIC技术", "高性价比"]
+        ffr_base: 0.4
+        supplier_lock_required: false
+        description: "豪威OV50K旗舰传感器，LOFIC技术提升高动态范围，国产替代方案"
+        space_cost: 4.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "OmniVision (韦尔股份)"
+          tech: "LOFIC (横向溢出积分电容)"
+
+      - id: camera_continuous_zoom
+        name: "连续光学变焦模组"
+        tier: long_term
+        cost_share_pct: 25.0
+        quality_score: 72
+        tech_maturity: 0.25
+        selling_point_tags: ["连续光变", "影像革命", "专业级摄影"]
+        ffr_base: 2.0
+        supplier_lock_required: true
+        description: "连续光学变焦（3x-10x无级变焦），技术前沿但良率极低，模组体积大"
+        space_cost: 9.0
+        research_type: joint_rd
+        conflicts_with: [display_foldable_utg, battery_silicon_120w]
+        real_world:
+          supplier: "Sony/OPPO联合研发"
+          status: "概念验证"
+
+  # ── 电池 / Battery ──
+  - id: battery
+    name: "电池 (能源)"
+    default_option_id: battery_silicon_80w
+    options:
+      - id: battery_silicon_80w
+        name: "硅碳负极 5500mAh + 80W"
+        tier: short_term
+        cost_share_pct: 12.0
+        quality_score: 84
+        tech_maturity: 0.82
+        selling_point_tags: ["硅碳负极", "5500mAh长续航", "80W快充"]
+        ffr_base: 0.2
+        supplier_lock_required: false
+        description: "硅碳负极电池，能量密度~750Wh/L，主流旗舰续航配置"
+        space_cost: 6.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          supplier: "ATL/欣旺达"
+          chemistry: "硅碳负极"
+          energy_density: "~750Wh/L"
+
+      - id: battery_silicon_120w
+        name: "硅碳负极 5000mAh + 120W"
+        tier: short_term
+        cost_share_pct: 14.0
+        quality_score: 76
+        tech_maturity: 0.75
+        selling_point_tags: ["120W极速闪充", "15分钟满电"]
+        ffr_base: 0.4
+        supplier_lock_required: false
+        description: "极速快充方案，但电池容量被迫缩小，充电发热需额外散热"
+        space_cost: 5.0
+        research_type: procurement
+        conflicts_with: [cooling_active, display_foldable_utg, camera_continuous_zoom]
+        real_world:
+          supplier: "ATL/德赛电池"
+          charge_power: "120W GaN"
+          full_charge: "~15min"
+
+      - id: battery_solid_state
+        name: "固态电池 5000mAh + 100W"
+        tier: long_term
+        cost_share_pct: 22.0
+        quality_score: 88
+        tech_maturity: 0.18
+        selling_point_tags: ["固态电池", "超高能量密度", "不起火不爆炸"]
+        ffr_base: 1.0
+        supplier_lock_required: true
+        description: "固态电池量产试点，能量密度翻倍，安全性革命但良率极低"
+        space_cost: 4.0
+        research_type: joint_rd
+        conflicts_with: [camera_periscope_pro, camera_lyt900]
+        real_world:
+          supplier: "宁德时代/三星SDI"
+          energy_density: ">900Wh/L"
+          status: "小批量试产"
+
+  # ── 存储 / Memory ──
+  - id: storage
+    name: "存储 (Memory)"
+    default_option_id: storage_lpddr5x
+    options:
+      - id: storage_lpddr5x
+        name: "LPDDR5X + UFS 4.0 (12+256GB)"
+        tier: short_term
+        cost_share_pct: 15.0
+        quality_score: 88
+        tech_maturity: 0.88
+        selling_point_tags: ["LPDDR5X", "UFS4.0", "大内存"]
+        ffr_base: 0.15
+        supplier_lock_required: false
+        description: "LPDDR5X 8533Mbps + UFS 4.0，主流旗舰存储组合"
+        space_cost: 2.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          ram_supplier: "三星/SK海力士/美光"
+          flash_supplier: "三星/铠侠/西部数据"
+
+      - id: storage_lpddr5t
+        name: "LPDDR5T + UFS 4.1 (16+512GB)"
+        tier: mid_term
+        cost_share_pct: 18.0
+        quality_score: 85
+        tech_maturity: 0.60
+        selling_point_tags: ["LPDDR5T", "9600Mbps", "16GB超大内存"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "LPDDR5T Turbo，业界最快移动DRAM，AI应用端侧部署利器"
+        space_cost: 2.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          ram_supplier: "SK海力士"
+          speed: "9600Mbps"
+
+      - id: storage_lpddr6
+        name: "LPDDR6 + UFS 5.0 (24+1TB)"
+        tier: long_term
+        cost_share_pct: 25.0
+        quality_score: 82
+        tech_maturity: 0.30
+        selling_point_tags: ["LPDDR6", "带宽翻倍", "24GB内存"]
+        ffr_base: 0.8
+        supplier_lock_required: true
+        description: "下一代内存标准，带宽提升50%+，但初期价格极高"
+        space_cost: 1.5
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          status: "JEDEC标准制定中"
+
+  # ── 散热 / Cooling ──
+  - id: cooling
+    name: "散热 (架构)"
+    default_option_id: cooling_vc_large
+    options:
+      - id: cooling_vc_large
+        name: "大VC均热板 + 石墨烯"
+        tier: short_term
+        cost_share_pct: 5.0
+        quality_score: 86
+        tech_maturity: 0.90
+        selling_point_tags: ["大面积VC", "多层石墨烯", "稳定散热"]
+        ffr_base: 0.1
+        supplier_lock_required: false
+        description: "~5000mm²大面积VC均热板 + 多层石墨烯散热，主流旗舰标配"
+        space_cost: 3.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          vc_area: "~5000mm²"
+
+      - id: cooling_active
+        name: "主动式风冷 + VC均热板"
+        tier: mid_term
+        cost_share_pct: 8.0
+        quality_score: 78
+        tech_maturity: 0.60
+        selling_point_tags: ["主动散热", "游戏满帧", "电竞级温控"]
+        ffr_base: 0.6
+        supplier_lock_required: false
+        description: "微型风扇主动散热架构，适合高负载游戏场景但增加功耗和噪音"
+        space_cost: 5.0
+        research_type: procurement
+        conflicts_with: [battery_silicon_120w]
+        real_world:
+          fan_size: "超薄微型风扇 ~0.5mm"
+
+      - id: cooling_vapor_chamber_pro
+        name: "环形冷泵 VC (压电泵)"
+        tier: long_term
+        cost_share_pct: 10.0
+        quality_score: 90
+        tech_maturity: 0.25
+        selling_point_tags: ["环形冷泵", "压电微泵", "散热革命"]
+        ffr_base: 0.5
+        supplier_lock_required: true
+        description: "压电微泵驱动工质循环，散热效率比传统VC提升3倍"
+        space_cost: 4.0
+        research_type: joint_rd
+        conflicts_with: [battery_solid_state]
+        real_world:
+          supplier: "华为/小米实验室"
+          status: "工程验证"
+
+  # ── 通信 / Connectivity ──
+  - id: communication
+    name: "通信 (连接)"
+    default_option_id: comm_5ga_standard
+    options:
+      - id: comm_5ga_standard
+        name: "5G-A (5.5G) + WiFi 7"
+        tier: short_term
+        cost_share_pct: 10.0
+        quality_score: 85
+        tech_maturity: 0.80
+        selling_point_tags: ["5G-A", "WiFi7", "万兆体验"]
+        ffr_base: 0.3
+        supplier_lock_required: false
+        description: "高通X75 5G-A基带 + FastConnect 7800 WiFi 7，旗舰通信方案"
+        space_cost: 2.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          modem: "Snapdragon X75"
+          wifi: "FastConnect 7800"
+
+      - id: comm_satellite
+        name: "卫星通信 + 5G-A"
+        tier: mid_term
+        cost_share_pct: 15.0
+        quality_score: 78
+        tech_maturity: 0.55
+        selling_point_tags: ["卫星通信", "北斗短报文", "无信号通讯"]
+        ffr_base: 0.8
+        supplier_lock_required: true
+        description: "卫星通信功能，支持北斗/天通双模，天线设计复杂"
+        space_cost: 4.0
+        research_type: joint_rd
+        conflicts_with: []
+        real_world:
+          satellite: "北斗/天通双模"
+          supplier: "中国电科/华力创通"
+
+      - id: comm_6g_research
+        name: "6G 太赫兹通信"
+        tier: long_term
+        cost_share_pct: 20.0
+        quality_score: 60
+        tech_maturity: 0.10
+        selling_point_tags: ["6G", "太赫兹", "感知通信一体化"]
+        ffr_base: 3.0
+        supplier_lock_required: true
+        description: "6G太赫兹通信预研，极高带宽但覆盖距离短，2030年前难以商用"
+        space_cost: 5.0
+        research_type: joint_rd
+        conflicts_with: []
+        real_world:
+          status: "ITU-R 框架阶段"
+          spectrum: "100GHz-3THz"
+
+  # ── AI 端侧智能 ──
+  - id: ai_npu
+    name: "AI (端侧智能)"
+    default_option_id: ai_npu_integrated
+    options:
+      - id: ai_npu_integrated
+        name: "SoC 集成 NPU (轻量端侧)"
+        tier: short_term
+        cost_share_pct: 0.0
+        quality_score: 82
+        tech_maturity: 0.82
+        selling_point_tags: ["端侧AI", "智能助手", "实时翻译"]
+        ffr_base: 0.1
+        supplier_lock_required: false
+        description: "SoC内置NPU，支持7B参数级端侧模型，中端以上标配"
+        space_cost: 0.0
+        research_type: procurement
+        conflicts_with: []
+        real_world:
+          model_size: "~7B参数"
+          framework: "Qualcomm AI Engine / MediaTek APU"
+
+      - id: ai_npu_dedicated
+        name: "独立 AI 引擎 (端侧大模型)"
+        tier: mid_term
+        cost_share_pct: 8.0
+        quality_score: 78
+        tech_maturity: 0.50
+        selling_point_tags: ["独立AI引擎", "端侧大模型", "Agent智能体"]
+        ffr_base: 0.5
+        supplier_lock_required: true
+        description: "独立NPU处理单元，支持13B+参数端侧大模型运行，离线AI体验"
+        space_cost: 2.0
+        research_type: joint_rd
+        conflicts_with: []
+        real_world:
+          model_size: "13B+参数"
+          supplier: "高通/华为/苹果"
+
+      - id: ai_npu_neuromorphic
+        name: "类脑计算芯片 (脉冲神经网络)"
+        tier: long_term
+        cost_share_pct: 15.0
+        quality_score: 60
+        tech_maturity: 0.10
+        selling_point_tags: ["类脑计算", "脉冲神经网络", "超低功耗AI"]
+        ffr_base: 3.0
+        supplier_lock_required: true
+        description: "脉冲神经网络芯片，能效比是传统NPU的100倍，但生态空白"
+        space_cost: 3.0
+        research_type: self_developed
+        conflicts_with: [soc_self_dev_2nm]
+        real_world:
+          status: "学术研究/Intel Loihi原型"

@@ -23,7 +23,7 @@ class CompanyOption(BaseModel):
 
 class GameConfig(BaseModel):
     """Configuration for creating a new game."""
-    company_id: str = "apply"
+    company_id: str = "apple"
     difficulty: str = "normal"
     initial_cash: float = 50.0
     max_turns: int = 40

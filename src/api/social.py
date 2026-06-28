@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.get("/social/xhs-posts")
 async def get_xhs_posts(
-    brand: str = Query("apply", description="Brand ID (e.g. apply, samsun, huawey)"),
+    brand: str = Query("apple", description="Brand ID (e.g. apple, samsung, huawei)"),
     force_refresh: bool = Query(False, description="Force refresh, bypass cache"),
     svc: SocialService = Depends(get_social_service),
 ):

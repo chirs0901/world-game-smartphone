@@ -30,14 +30,14 @@ _CACHE_TTL = 7200
 
 # Brand ID → XHS search keyword mapping (use real brand names for better results)
 BRAND_SEARCH_KEYWORDS: dict[str, str] = {
-    "apply": "iPhone 16 Apple",
-    "samsun": "三星Galaxy S25",
-    "huawey": "华为Mate 70",
-    "oyeah": "OPPO Find X8",
-    "viva": "vivo X200",
-    "xiaomee": "小米15",
-    "honorx": "荣耀Magic7",
-    "nothingx": "Nothing Phone",
+    "apple": "iPhone 16 Apple",
+    "samsung": "三星Galaxy S25",
+    "huawei": "华为Mate 70",
+    "oppo": "OPPO Find X8",
+    "vivo": "vivo X200",
+    "xiaomi": "小米15",
+    "honor": "荣耀Magic7",
+    "nothing": "Nothing Phone",
 }
 
 
@@ -191,7 +191,7 @@ class SocialService:
         """Search Xiaohongshu for brand-related posts.
 
         Args:
-            brand_id: Company ID (e.g. "apply", "samsun")
+            brand_id: Company ID (e.g. "apple", "samsung")
             limit: Max number of posts to return
             force_refresh: If True, bypass cache
 

@@ -37,7 +37,7 @@ class WorldStateMachine:
         return None
 
     def create_initial_state(
-        self, difficulty: str = "normal", company_id: str = "apply"
+        self, difficulty: str = "normal", company_id: str = "apple"
     ) -> WorldState:
         """Create the initial world state for a new game."""
         game_cfg = self._config.get("game", {})

@@ -1,0 +1,360 @@
+# ============================================================
+# Real-World Phone Models Database — Brand Flagship Lineups
+# 真实手机机型数据库（2023-2025 旗舰/高端机型）
+#
+# Data sources: GSMArena, official spec sheets, industry reports
+# ============================================================
+
+brands:
+  # ── Apple ──
+  apple:
+    name: Apple
+    models:
+      - id: iphone_16_pro_max
+        model: "iPhone 16 Pro Max"
+        release_year: 2024
+        tier: flagship
+        price_range: "1199-1599 USD"
+        key_specs:
+          soc: "A18 Pro (3nm)"
+          display: '6.9" LTPO OLED, 2868×1320, 120Hz ProMotion'
+          camera: "48MP Fusion + 48MP UW + 12MP 5x Tetraprism"
+          battery: "4685mAh, 27W wired / 25W MagSafe"
+          storage: "256GB / 512GB / 1TB"
+          weight: "227g"
+        selling_points: ["A18 Pro性能之王", "专业影像系统", "iOS生态深度整合"]
+        strengths: ["极致性能", "影像旗舰", "生态系统"]
+        weaknesses: ["充电慢", "价格昂贵", "系统封闭"]
+
+      - id: iphone_16_pro
+        model: "iPhone 16 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "999-1499 USD"
+        key_specs:
+          soc: "A18 Pro (3nm)"
+          display: '6.3" LTPO OLED, 2622×1206, 120Hz ProMotion'
+          camera: "48MP Fusion + 48MP UW + 12MP 5x Tetraprism"
+          battery: "3582mAh, 27W wired / 25W MagSafe"
+          storage: "128GB / 256GB / 512GB / 1TB"
+          weight: "199g"
+        selling_points: ["A18 Pro", "专业影像", "紧凑旗舰"]
+        strengths: ["单手握持感", "性能不妥协", "影像与Pro Max一致"]
+        weaknesses: ["续航一般", "充电慢"]
+
+      - id: iphone_16
+        model: "iPhone 16"
+        release_year: 2024
+        tier: high_mid
+        price_range: "799-1099 USD"
+        key_specs:
+          soc: "A18 (3nm)"
+          display: '6.1" Super Retina XDR OLED, 2556×1179, 60Hz'
+          camera: "48MP Main + 12MP UW"
+          battery: "3561mAh, 20W wired"
+          storage: "128GB / 256GB / 512GB"
+          weight: "170g"
+        selling_points: ["A18芯片", "灵动岛", "长续航"]
+        strengths: ["性价比", "iOS生态", "长续航"]
+        weaknesses: ["60Hz刷新率", "充电慢"]
+
+      - id: iphone_15_pro_max
+        model: "iPhone 15 Pro Max"
+        release_year: 2023
+        tier: flagship
+        price_range: "1099-1499 USD"
+        key_specs:
+          soc: "A17 Pro (3nm)"
+          display: '6.7" LTPO OLED, 2796×1290, 120Hz ProMotion'
+          camera: "48MP Main + 12MP UW + 12MP 5x Tetraprism"
+          battery: "4422mAh, 27W wired"
+          storage: "256GB / 512GB / 1TB"
+          weight: "221g"
+        selling_points: ["钛合金机身", "A17 Pro", "5倍长焦首秀"]
+        strengths: ["首款3nm芯片", "钛合金轻量化"]
+        weaknesses: ["充电慢（同上代）"]
+
+  # ── Samsung ──
+  samsung:
+    name: Samsung
+    models:
+      - id: galaxy_s25_ultra
+        model: "Galaxy S25 Ultra"
+        release_year: 2025
+        tier: flagship
+        price_range: "1299-1659 USD"
+        key_specs:
+          soc: "Snapdragon 8 Elite (3nm) / Exynos 2500"
+          display: '6.9" Dynamic AMOLED 2X, 3120×1440, 120Hz'
+          camera: "200MP Main + 50MP UW + 50MP 5x + 10MP 3x"
+          battery: "5000mAh, 45W wired"
+          storage: "256GB / 512GB / 1TB, 12GB RAM"
+          weight: "218g"
+        selling_points: ["S Pen", "200MP ISOCELL", "Galaxy AI", "钛合金中框"]
+        strengths: ["全能旗舰", "S Pen生产力", "7年系统更新"]
+        weaknesses: ["45W充电（不如国产）", "起售价最高"]
+
+      - id: galaxy_s24_ultra
+        model: "Galaxy S24 Ultra"
+        release_year: 2024
+        tier: flagship
+        price_range: "1199-1599 USD"
+        key_specs:
+          soc: "Snapdragon 8 Gen 3 (4nm)"
+          display: '6.8" Dynamic AMOLED 2X, 3088×1440, 120Hz'
+          camera: "200MP Main + 12MP UW + 50MP 5x + 10MP 3x"
+          battery: "5000mAh, 45W wired"
+          storage: "256GB / 512GB / 1TB, 12GB RAM"
+          weight: "232g"
+        selling_points: ["钛合金中框", "Galaxy AI", "S Pen"]
+        strengths: ["全能旗舰", "Galaxy AI首发", "长焦影像"]
+        weaknesses: ["重量232g", "充电速度"]
+
+      - id: galaxy_z_fold6
+        model: "Galaxy Z Fold6"
+        release_year: 2024
+        tier: foldable
+        price_range: "1999-2199 USD"
+        key_specs:
+          soc: "Snapdragon 8 Gen 3 (4nm)"
+          display: '7.6" Foldable AMOLED + 6.3" Cover'
+          camera: "50MP Main + 12MP UW + 10MP 3x"
+          battery: "4400mAh, 25W wired"
+          storage: "256GB / 512GB / 1TB, 12GB RAM"
+          weight: "239g"
+        selling_points: ["折叠屏", "大屏生产力", "多任务"]
+        strengths: ["折叠屏王者", "S Pen支持", "多窗口"]
+        weaknesses: ["续航一般", "折痕可见", "价格昂贵"]
+
+  # ── Huawei ──
+  huawei:
+    name: Huawei
+    models:
+      - id: mate_70_pro
+        model: "Mate 70 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "6499-8999 CNY"
+        key_specs:
+          soc: "麒麟 9010 (7nm+)"
+          display: '6.9" LTPO OLED, 2720×1260, 120Hz'
+          camera: "50MP Vario-Main + 40MP UW + 48MP Macro-Tele"
+          battery: "5500mAh, 100W wired / 80W wireless"
+          storage: "256GB / 512GB / 1TB, 12GB RAM"
+          weight: "221g"
+        selling_points: ["鸿蒙生态", "卫星通信", "昆仑玻璃", "玄武构架"]
+        strengths: ["国产自研芯片", "鸿蒙生态", "卫星通信差异化"]
+        weaknesses: ["7nm制程限制", "无GMS", "供应受限"]
+
+      - id: mate_60_pro
+        model: "Mate 60 Pro"
+        release_year: 2023
+        tier: flagship
+        price_range: "5999-7999 CNY"
+        key_specs:
+          soc: "麒麟 9000S (7nm)"
+          display: '6.82" LTPO OLED, 2720×1260, 120Hz'
+          camera: "50MP Main + 12MP UW + 48MP Macro-Tele"
+          battery: "5000mAh, 88W wired / 50W wireless"
+          storage: "256GB / 512GB / 1TB, 12GB RAM"
+          weight: "225g"
+        selling_points: ["5G回归", "卫星通话", "鸿蒙4.0"]
+        strengths: ["自研芯片突破", "卫星通信功能"]
+        weaknesses: ["性能落后竞品", "GMS限制"]
+
+      - id: pura_70_ultra
+        model: "Pura 70 Ultra"
+        release_year: 2024
+        tier: flagship
+        price_range: "8999-9999 CNY"
+        key_specs:
+          soc: "麒麟 9010"
+          display: '6.8" LTPO OLED, 2844×1260, 120Hz'
+          camera: "50MP 1\" Main + 40MP UW + 50MP Macro-Tele"
+          battery: "5200mAh, 100W wired / 80W wireless"
+          storage: "512GB / 1TB, 16GB RAM"
+          weight: "226g"
+        selling_points: ["1英寸感光", "物理可变光圈", "伸缩镜头"]
+        strengths: ["极致影像", "物理可变光圈"]
+        weaknesses: ["价格高", "供应被限制"]
+
+  # ── OPPO ──
+  oppo:
+    name: OPPO
+    models:
+      - id: find_x8_pro
+        model: "Find X8 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "5999-6999 CNY"
+        key_specs:
+          soc: "天玑 9400 (3nm)"
+          display: '6.78" LTPO OLED, 2780×1264, 120Hz'
+          camera: "50MP Main + 50MP UW + 50MP 3x + 50MP 6x"
+          battery: "5910mAh, 80W wired / 50W wireless"
+          storage: "256GB / 512GB / 1TB, 12/16GB RAM"
+          weight: "218g"
+        selling_points: ["双潜望长焦", "冰川电池", "哈苏影像"]
+        strengths: ["双长焦", "超大电池", "快充"]
+        weaknesses: ["品牌溢价偏低海外"]
+
+      - id: find_x7_ultra
+        model: "Find X7 Ultra"
+        release_year: 2024
+        tier: flagship
+        price_range: "5999-6999 CNY"
+        key_specs:
+          soc: "骁龙 8 Gen 3"
+          display: '6.82" LTPO OLED, 3168×1440, 120Hz'
+          camera: "50MP 1\" Main + 50MP UW + 50MP 3x + 50MP 6x"
+          battery: "5000mAh, 100W wired / 50W wireless"
+          storage: "256GB / 512GB, 12/16GB RAM"
+          weight: "221g"
+        selling_points: ["双潜望", "1英寸双长焦", "哈苏人像"]
+        strengths: ["无敌影像系统", "HyperTone引擎"]
+        weaknesses: ["续航一般", "充电不如竞品快"]
+
+  # ── vivo ──
+  vivo:
+    name: vivo
+    models:
+      - id: x200_pro
+        model: "X200 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "5299-6499 CNY"
+        key_specs:
+          soc: "天玑 9400 (3nm)"
+          display: '6.78" LTPO OLED, 2800×1260, 120Hz'
+          camera: "50MP 1\" Main + 50MP UW + 200MP Periscope 3.7x"
+          battery: "6000mAh, 90W wired / 30W wireless"
+          storage: "256GB / 512GB / 1TB, 12/16GB RAM"
+          weight: "223g"
+        selling_points: ["200MP长焦", "蓝海电池", "蔡司影像"]
+        strengths: ["远摄之王", "6000mAh超大电池", "vivo V3+影像芯片"]
+        weaknesses: ["无线充电慢"]
+
+      - id: x100_ultra
+        model: "X100 Ultra"
+        release_year: 2024
+        tier: flagship
+        price_range: "6499-7499 CNY"
+        key_specs:
+          soc: "骁龙 8 Gen 3"
+          display: '6.78" LTPO OLED, 3200×1440, 120Hz'
+          camera: "50MP 1\" Main + 50MP UW + 200MP APO Periscope"
+          battery: "5500mAh, 80W wired / 30W wireless"
+          storage: "256GB / 512GB / 1TB"
+          weight: "229g"
+        selling_points: ["APO长焦", "蓝图影像", "演唱会神器"]
+        strengths: ["APO潜望长焦", "vivo V3+芯片"]
+        weaknesses: ["无线充电30W"]
+
+  # ── Xiaomi ──
+  xiaomi:
+    name: Xiaomi
+
+    models:
+      - id: xiaomi_15_pro
+        model: "Xiaomi 15 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "4999-5999 CNY"
+        key_specs:
+          soc: "骁龙 8 Elite (3nm)"
+          display: '6.73" LTPO OLED, 3200×1440, 120Hz'
+          camera: "50MP 1\" Main + 50MP UW + 50MP 5x Periscope"
+          battery: "6100mAh, 90W wired / 50W wireless"
+          storage: "256GB / 512GB / 1TB, 12/16GB RAM"
+          weight: "213g"
+        selling_points: ["金沙江电池", "徕卡影像", "自研澎湃OS"]
+        strengths: ["6100mAh超大电池", "性价比", "快充+无线充"]
+        weaknesses: ["澎湃OS生态不如鸿蒙/iOS"]
+
+      - id: xiaomi_14_ultra
+        model: "Xiaomi 14 Ultra"
+        release_year: 2024
+        tier: flagship
+        price_range: "5999-7299 CNY"
+        key_specs:
+          soc: "骁龙 8 Gen 3"
+          display: '6.73" LTPO OLED, 3200×1440, 120Hz'
+          camera: "50MP 1\" Main + 50MP UW + 50MP 3.2x + 50MP 5x"
+          battery: "5300mAh, 90W wired / 80W wireless"
+          storage: "256GB / 512GB / 1TB, 12/16GB RAM"
+          weight: "220g"
+        selling_points: ["徕卡全焦段四摄", "Summilux镜头", "摄影师套装"]
+        strengths: ["1英寸可变光圈", "徕卡色彩科学", "相机套装生态"]
+        weaknesses: ["重量220g", "曲面屏贴膜难"]
+
+  # ── Honor ──
+  honor:
+    name: Honor
+    models:
+      - id: magic7_pro
+        model: "Magic7 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "5699-6699 CNY"
+        key_specs:
+          soc: "骁龙 8 Elite (3nm)"
+          display: '6.8" LTPO OLED, 2800×1280, 120Hz'
+          camera: "50MP Main + 50MP UW + 200MP Periscope 3x"
+          battery: "5850mAh, 100W wired / 80W wireless"
+          storage: "256GB / 512GB / 1TB, 12/16GB RAM"
+          weight: "223g"
+        selling_points: ["绿洲护眼屏", "青海湖电池", "骁龙8 Elite"]
+        strengths: ["顶级护眼", "超大电池", "卫星通信"]
+        weaknesses: ["品牌独立后海外市场仍在恢复"]
+
+      - id: magic6_pro
+        model: "Magic6 Pro"
+        release_year: 2024
+        tier: flagship
+        price_range: "4999-5999 CNY"
+        key_specs:
+          soc: "骁龙 8 Gen 3"
+          display: '6.8" LTPO OLED, 2800×1280, 120Hz'
+          camera: "50MP Main + 50MP UW + 180MP Periscope 2.5x"
+          battery: "5600mAh, 80W wired / 66W wireless"
+          storage: "256GB / 512GB, 12/16GB RAM"
+          weight: "229g"
+        selling_points: ["巨犀玻璃", "卫星通信", "青海湖电池"]
+        strengths: ["护眼屏技术领先", "自研C1+射频芯片"]
+        weaknesses: ["海外市场", "设计偏厚重"]
+
+  # ── Nothing ──
+  nothing:
+    name: Nothing
+    models:
+      - id: nothing_phone_3
+        model: "Nothing Phone (3)"
+        release_year: 2024
+        tier: high_mid
+        price_range: "399-499 GBP"
+        key_specs:
+          soc: "骁龙 8s Gen 3 (4nm)"
+          display: '6.67" LTPO OLED, 2400×1080, 120Hz'
+          camera: "50MP Main + 50MP UW + 50MP 2x Tele"
+          battery: "5000mAh, 45W wired / 15W wireless"
+          storage: "128GB / 256GB, 8/12GB RAM"
+          weight: "195g"
+        selling_points: ["Glyph界面", "透明设计", "Nothing OS"]
+        strengths: ["设计独特", "Glyph灯效", "简洁OS"]
+        weaknesses: ["品牌知名度低", "售后网络有限", "不敌旗舰性能"]
+
+      - id: nothing_phone_2
+        model: "Nothing Phone (2)"
+        release_year: 2023
+        tier: high_mid
+        price_range: "399-499 GBP"
+        key_specs:
+          soc: "骁龙 8+ Gen 1 (4nm)"
+          display: '6.7" LTPO OLED, 2412×1080, 120Hz'
+          camera: "50MP Main + 50MP UW"
+          battery: "4700mAh, 45W wired / 15W wireless"
+          storage: "128GB / 256GB / 512GB, 8/12GB RAM"
+          weight: "201g"
+        selling_points: ["Glyph界面", "透明后盖", "清爽Android"]
+        strengths: ["设计出圈", "系统简洁流畅"]
+        weaknesses: ["性能定位中端", "无长焦"]

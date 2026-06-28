@@ -31,13 +31,19 @@ data/social_cache/
 *.db-wal
 
 # Vercel temp
-.vercel-tmp/*.log
-.vercel-tmp/*.pid
+.vercel-tmp/
 .vercel/
 
 # OS
 .DS_Store
 Thumbs.db
 
+# Qoder
+.qoder/
+
+# Node modules (root)
+node_modules/
+
 # Logs
 *.log
+.vercel
