@@ -13,6 +13,7 @@ from src.api.social import router as social_router
 from src.api.tech_roadmap import router as tech_router
 from src.api.phones import router as phones_router
 from src.api.world import router as world_router
+from src.api.engine_api import router as engine_router
 
 api_router = APIRouter()
 
@@ -27,3 +28,4 @@ api_router.include_router(social_router, tags=["Social"])
 api_router.include_router(tech_router, tags=["TechRoadmap"])
 api_router.include_router(phones_router, tags=["Phones"])
 api_router.include_router(world_router, tags=["World"])
+api_router.include_router(engine_router, tags=["Engine"])
